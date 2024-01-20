@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     LoadHome();
   }
@@ -35,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'News Snack',
+      title: 'Farm2Fabric',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
