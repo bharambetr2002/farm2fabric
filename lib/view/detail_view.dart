@@ -28,7 +28,7 @@ class _DetailViewScreenState extends State<DetailViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("News Snack")),
+      appBar: AppBar(title: Text("News")),
       body: WebView(
         initialUrl: widget.newsUrl,
         javascriptMode: JavascriptMode.unrestricted,
