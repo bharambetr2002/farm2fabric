@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:farm2fabric/model/newsArt.dart';
+import 'package:farm2fabric/model/newsArticle.dart';
 import 'package:http/http.dart';
 
 //TODO 1 : Work on accuracy of  the news

@@ -1,5 +1,5 @@
-import 'package:farm2fabric/controller/fetchnews.dart';
-import 'package:farm2fabric/model/newsArt.dart';
+import 'package:farm2fabric/controller/fetch_news.dart';
+import 'package:farm2fabric/model/news_article.dart';
 import 'package:farm2fabric/view/widgets/newscontainer.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +34,8 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-    
+      appBar: AppBar(title: Text("News"), centerTitle: true,),
+
       body: PageView.builder(
           controller: PageController(initialPage: 0),
           scrollDirection: Axis.vertical,
