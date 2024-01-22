@@ -1,6 +1,6 @@
-import 'package:farm2fabric/controller/fetch_news.dart';
-import 'package:farm2fabric/model/news_article.dart';
-import 'package:farm2fabric/view/widgets/newscontainer.dart';
+import 'package:farm2fabric/market_information/controller/fetch_news.dart';
+import 'package:farm2fabric/market_information/model/news_article.dart';
+import 'package:farm2fabric/market_information/view/widgets/newscontainer.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatefulWidget{

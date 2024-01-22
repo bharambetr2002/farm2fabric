@@ -1,6 +1,6 @@
-import 'package:farm2fabric/view/dashboard.dart';
+import 'package:farm2fabric/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:farm2fabric/view/splash_screen.dart';
+import 'package:farm2fabric/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

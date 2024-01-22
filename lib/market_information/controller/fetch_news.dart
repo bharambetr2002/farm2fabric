@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:farm2fabric/model/news_article.dart';
+import 'package:farm2fabric/market_information/model/news_article.dart';
 import 'package:farm2fabric/utilities/keys.dart';
 import 'package:http/http.dart';
 
@@ -54,7 +54,7 @@ class FetchNews{
     final _random = new Random();
     var sourceID = sourcesId[_random.nextInt(sourcesId.length)];
    
-   // add your own key here & follow the steps given in create.dart
+   // add your own key here & follow the steps given in env.dart
    
     Response response = await get(Uri.parse("https://newsapi.org/v2/everything?q=wool+fabric&apiKey=$API_KEY"));
 
