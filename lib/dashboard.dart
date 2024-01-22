@@ -15,7 +15,7 @@ class Dashboard extends StatelessWidget{
               MaterialPageRoute(builder: (context) => NewsScreen()),
             );
           },
-          child: Text('Go to NewsScreen')
+          child: Text('Go to Market Information')
         ),
     ),
     );  

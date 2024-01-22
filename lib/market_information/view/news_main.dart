@@ -34,7 +34,7 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(title: Text("News"), centerTitle: true,),
+      appBar: AppBar(title: Text("Market Information"), centerTitle: true,),
 
       body: PageView.builder(
           controller: PageController(initialPage: 0),
