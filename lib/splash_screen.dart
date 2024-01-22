@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen>
                   curve: Curves.bounceOut,
                 ),
               ),
-              child: Image.asset('assets/img/logo.png', height: 300),
+              child: Image.asset('assets/images/logo.png', height: 300),
             ),
             const SizedBox(
               height: 10,
