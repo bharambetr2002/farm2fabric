@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:farm2fabric/model/news_article.dart';
+import 'package:farm2fabric/utilities/keys.dart';
 import 'package:http/http.dart';
 
 //TODO 1 : Work on accuracy of  the news
@@ -53,7 +54,9 @@ class FetchNews{
     final _random = new Random();
     var sourceID = sourcesId[_random.nextInt(sourcesId.length)];
    
-    Response response = await get(Uri.parse("https://newsapi.org/v2/everything?q=wool+fabric&apiKey=5511e1883a7b406c8fc24b29a71eaf38"));
+   // add your own key here & follow the steps given in create.dart
+   
+    Response response = await get(Uri.parse("https://newsapi.org/v2/everything?q=wool+fabric&apiKey=$API_KEY"));
 
     Map body_data = jsonDecode(response.body);
     List articles = body_data["articles"];
