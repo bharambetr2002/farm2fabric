@@ -1,4 +1,4 @@
-import 'package:farm2fabric/view/home.dart';
+import 'package:farm2fabric/view/news_main.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget{

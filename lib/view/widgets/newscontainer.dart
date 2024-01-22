@@ -2,29 +2,32 @@ import 'package:farm2fabric/view/detail_view.dart';
 import 'package:flutter/material.dart';
 
 class newscontainer extends StatelessWidget{
-  String imgUrl;
+
+    String imgUrl;
     String newsHead;
     String newsDes;
     String newsUrl;
     String newsCnt;
 
    newscontainer({super.key , 
-   required this.imgUrl ,
-   required this.newsHead ,
-   required this.newsDes ,
-  required this.newsCnt ,
-   required this.newsUrl
+    required this.imgUrl ,
+    required this.newsHead ,
+    required this.newsDes ,
+    required this.newsCnt ,
+    required this.newsUrl
    });
+
   @override
+
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         FadeInImage.assetNetwork(
-            height: 400,
+            height: 200,
             width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
+            fit: BoxFit.fitWidth,
             placeholder: "assets/img/placeholder.jfif",
             image: imgUrl),
         Container(
@@ -32,23 +35,23 @@ class newscontainer extends StatelessWidget{
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SizedBox(
-              height: 30,
+              height: 15,
             ),
             Text(
-              newsHead.length > 90
-                  ? "${newsHead.substring(0, 90)}..."
+              newsHead.length > 120
+                  ? "${newsHead.substring(0, 120)}..."
                   : newsHead,
-              style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 30,
+              height: 15,
             ),
             Text(
               newsDes,
-              style: TextStyle(fontSize: 12, color: Colors.black38),
+              style: TextStyle(fontSize: 14, color: const Color.fromARGB(96, 9, 8, 8)),
             ),
             SizedBox(
-              height: 30,
+              height: 15,
             ),
             Text(
               newsCnt != "--"
@@ -77,19 +80,6 @@ class newscontainer extends StatelessWidget{
                   child: Text("Read More")),
             ),
           ],
-        ),
-        Center(
-            child: TextButton(
-                onPressed: () async {
-                  await (Uri.parse("https://newsapi.org/"));
-                },
-                child: Text(
-                  "News Provided By NewsAPI.org",
-                  style: TextStyle(fontSize: 12),
-                  textAlign: TextAlign.center,
-                ))),
-        SizedBox(
-          height: 20,
         ),
       ]),
     );
