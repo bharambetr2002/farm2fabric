@@ -1,8 +1,8 @@
 import 'package:farm2fabric/market_information/view/news_main.dart';
 import 'package:flutter/material.dart';
 
-class Home_Guest extends StatelessWidget{
-  const Home_Guest({Key? key}) : super(key: key);
+class Home_Farmer extends StatelessWidget{
+  const Home_Farmer({Key? key}) : super(key: key);
 
   void onCardTap(String title, BuildContext context) {
     switch (title) {

@@ -1,7 +1,5 @@
 import 'package:farm2fabric/consts/consts.dart';
-import 'package:farm2fabric/guest_login/home_guest.dart';
-import 'package:flutter/material.dart';
-import 'package:farm2fabric/splash_screen.dart';
+import 'package:farm2fabric/authentication/view/splash_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -37,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Farm2Fabric',
       theme: ThemeData(
-        //scaffoldBackgroundColor: Colors.transparent,
+        scaffoldBackgroundColor: Colors.transparent,
         appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
         fontFamily: regular,
       ),

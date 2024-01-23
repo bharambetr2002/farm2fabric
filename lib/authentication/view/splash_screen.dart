@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:farm2fabric/consts/consts.dart';
-import 'package:farm2fabric/trading_platform/view/auth_screen/login_screen.dart';
-import 'package:farm2fabric/trading_platform/widgets_common/applogo_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:farm2fabric/authentication/view/login_screen.dart';
+import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,7 +35,7 @@ changeScreen(){
       body: Center(
         child: Column(
           children:[
-            //splas
+            //splash screeb UI is started
             Align( alignment: Alignment.topLeft, child: Image.asset(icSplashBg, width: 300)),
             20.heightBox,
             applogoWidget(),
