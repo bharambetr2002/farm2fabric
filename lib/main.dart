@@ -1,4 +1,4 @@
-import 'package:farm2fabric/dashboard.dart';
+import 'package:farm2fabric/guest_login/home_guest.dart';
 import 'package:flutter/material.dart';
 import 'package:farm2fabric/splash_screen.dart';
 
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: showingSplash ? SplashScreen() : Dashboard(),
+      home: showingSplash ? SplashScreen() : Home_Guest(),
     );
   }
 }
