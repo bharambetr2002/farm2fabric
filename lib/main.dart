@@ -1,6 +1,8 @@
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/guest_login/home_guest.dart';
 import 'package:flutter/material.dart';
 import 'package:farm2fabric/splash_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,8 +22,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         showingSplash = false;
       });
-    });
-    
+    });  
   }
 
   @override
@@ -32,13 +33,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Farm2Fabric',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        //scaffoldBackgroundColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
+        fontFamily: regular,
       ),
-      home: showingSplash ? SplashScreen() : Home_Guest(),
+      home: const SplashScreen(),
     );
   }
 }

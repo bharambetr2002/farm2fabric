@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   http : any 
   webview_flutter: ^2.0.13
+  velocity_x: any
+  get: any
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,8 @@ flutter:
   assets:
      - assets/
      - assets/images/
+     - assets/image/
+     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -83,17 +87,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
+  fonts:
+    - family: sans_regular
+      fonts:
+        - asset: assets/fonts/sans_regular.ttf
+    
+    - family: sans_semibold
+      fonts:
+        - asset: assets/fonts/sans_semibold.ttf
+
+    - family: sans_bold
+      fonts:
+        - asset: assets/fonts/sans_bold.ttf   
+        # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

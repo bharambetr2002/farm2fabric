@@ -1,6 +1,9 @@
 import 'dart:async';
-
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/trading_platform/view/auth_screen/login_screen.dart';
+import 'package:farm2fabric/trading_platform/widgets_common/applogo_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,65 +12,45 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  @override
+class _SplashScreenState extends State<SplashScreen>{
+
+// creating a method to change screen
+
+changeScreen(){
+  Future.delayed(const Duration(seconds: 5), () {
+    //using getX
+    Get.off(() => loginScreen());
+  });
+}
+
+@override
   void initState() {
+    changeScreen();
     super.initState();
-    _animationController = AnimationController(
-      duration: const Duration(seconds: 5),
-      vsync: this,
-    );
-    _animationController.forward();
-    Timer(const Duration(seconds: 5), () {});
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color.fromRGBO(137, 153, 246, 1),
+      backgroundColor: Colors.blue,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ScaleTransition(
-              scale: Tween<double>(begin: 0, end: 1).animate(
-                CurvedAnimation(
-                  parent: _animationController,
-                  curve: Curves.bounceOut,
-                ),
-              ),
-              child: Image.asset('assets/images/logo.png', height: 300),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            ScaleTransition(
-              scale: Tween<double>(begin: 0, end: 1).animate(
-                CurvedAnimation(
-                  parent: _animationController,
-                  curve: Curves.bounceOut,
-                ),
-              ),
-              child: const Text(
-                'Farm to Fabric',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            )
+          children:[
+            //splas
+            Align( alignment: Alignment.topLeft, child: Image.asset(icSplashBg, width: 300)),
+            20.heightBox,
+            applogoWidget(),
+            10.heightBox,
+            appname.text.fontFamily(bold).size(22).white.make(),
+            5.heightBox,
+            appversion.text.white.make(),
+            const Spacer(),
+            credits.text.white.fontFamily(semibold).make(),
+            30.heightBox,
+            //splash screen UI is completed
           ],
-        ),
-      ),
-      bottomNavigationBar: const SizedBox(
-        height: 50,
-        child: Text('Uniting Wool, Sustaining Tradition, Cultivating Tomorrow',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontFamily: 'italic', fontSize: 14, color: Colors.white)),
-      ),
+        )
+      )
     );
   }
 }

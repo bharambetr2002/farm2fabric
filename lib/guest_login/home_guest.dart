@@ -18,6 +18,12 @@ class Home_Guest extends StatelessWidget{
       case 'Trade':
         Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
+      case 'Market':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        break;
+      case 'Service':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        break;
       default:
         print('Unknown screen');
     }
@@ -77,7 +83,7 @@ class Home_Guest extends StatelessWidget{
                   crossAxisSpacing: 10.0, // Adjust this value for desired horizontal spacing
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  final title = ['Market Information', 'Learn', 'Warehouse', 'Trade'][index];
+                  final title = ['Market Information', 'Learn', 'Warehouse', 'Trade', 'Market', 'Service'][index];
                   return GestureDetector(
                     onTap: () => onCardTap(title, context),
                     child: GridItem(title: title),
