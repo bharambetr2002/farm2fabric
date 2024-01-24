@@ -16,3 +16,9 @@ const name = "Name";
 const nameHint = "Tanmay";
 const privacyPolicy = "Privacy Policy";
 const termsandcond = "Terms & Conditions";
+
+// trading home screen
+const home = "Home", catgories = "Categories",  cart = "Cart", account = "Account";
+
+// trading screen 
+const seachanything = "Search anything....", topCategory = "Top Category", topSeller = "Top Sellers", featuredCategory = "Featured Category";

@@ -19,7 +19,7 @@
     c. service status
     https://www.youtube.com/watch?v=2Bxu5cHNiDo&list=PLxefhmF0pcPlqR5FBT9_51HcIFLRvzci2
 
-5. Warehouse Management -
+5. Warehouse Management - (rental system)
     a. storage renting
     b. booking
     c. pricing 

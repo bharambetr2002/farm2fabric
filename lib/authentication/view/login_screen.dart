@@ -5,7 +5,7 @@ import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
 import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
-import 'package:farm2fabric/farmer_auth/home_farmer.dart';
+import 'package:farm2fabric/customer_auth/home_customer.dart';
 import 'package:get/get.dart';
 
 class loginScreen extends StatelessWidget{
@@ -34,7 +34,7 @@ class loginScreen extends StatelessWidget{
                   ),
                   5.heightBox,  
                   ourButton(color : redColor, title: login, textColor: whiteColor, onPress: (){
-                    Get.to(() => const Home_Farmer());
+                    Get.to(() => const Home_Customer());
                   }).box.width(context.screenWidth -50).make(),
                   5.heightBox,
                   createNewAccount.text.color(fontGrey).make(),

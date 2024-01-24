@@ -1,8 +1,10 @@
 import 'package:farm2fabric/market_information/view/news_main.dart';
+import 'package:farm2fabric/trading_platform/view/home_screen/trading_home.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Home_Farmer extends StatelessWidget{
-  const Home_Farmer({Key? key}) : super(key: key);
+class Home_Customer extends StatelessWidget{
+  const Home_Customer({Key? key}) : super(key: key);
 
   void onCardTap(String title, BuildContext context) {
     switch (title) {
@@ -16,7 +18,7 @@ class Home_Farmer extends StatelessWidget{
         Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       case 'Trade':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Get.to(() => const TradingHome());
         break;
       case 'Market':
         Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
