@@ -6,7 +6,6 @@ import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
 import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/customer_auth/home_customer.dart';
-import 'package:get/get.dart';
 
 class loginScreen extends StatelessWidget{
   const loginScreen({Key? key}) : super(key: key);

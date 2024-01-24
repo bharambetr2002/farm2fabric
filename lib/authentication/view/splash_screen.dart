@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
-import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

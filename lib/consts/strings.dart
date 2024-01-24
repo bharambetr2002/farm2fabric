@@ -22,3 +22,4 @@ const home = "Home", catgories = "Categories",  cart = "Cart", account = "Accoun
 
 // trading screen 
 const seachanything = "Search anything....", topCategory = "Top Category", topSeller = "Top Sellers", featuredCategory = "Featured Category";
+const tools = "Tools", rawWool = "Raw Wall", processedWool = "Processed Wool", yarn = "Yarn"; 

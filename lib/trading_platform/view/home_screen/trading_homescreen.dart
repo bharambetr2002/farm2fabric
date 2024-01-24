@@ -1,4 +1,6 @@
 import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
+import 'package:farm2fabric/trading_platform/view/widgets_common/featured_button.dart';
 import 'package:farm2fabric/trading_platform/view/widgets_common/home_buttons.dart';
 
 class TradingHomeScreen extends StatelessWidget{
@@ -18,7 +20,6 @@ class TradingHomeScreen extends StatelessWidget{
         children: [
           HeightBox(context.screenWidth * 0.1),
           Container(
-            
             alignment: Alignment.center,
             height: 60,
             color: lightGrey,
@@ -52,7 +53,21 @@ class TradingHomeScreen extends StatelessWidget{
             alignment: Alignment.centerLeft,
             child: Text(featuredCategory, style: TextStyle(fontFamily: semibold, fontSize: 18),)),
           10.heightBox,
-
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                3,
+                (index) => Column(
+                  children: [
+                    featuredButton(icon: featureImage1[index], title: featureTitles1[index]),
+                    10.heightBox,
+                    featuredButton(icon: featureImage2[index], title: featureTitles2[index])
+                  ],
+                )
+              )
+            )
+          )
         ],
       ),
     );

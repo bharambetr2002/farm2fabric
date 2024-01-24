@@ -5,7 +5,6 @@ import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
-import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
