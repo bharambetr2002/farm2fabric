@@ -3,7 +3,7 @@ import 'package:farm2fabric/market_information/model/news_article.dart';
 import 'package:farm2fabric/market_information/view/widgets/newscontainer.dart';
 import 'package:flutter/material.dart';
 
-class NewsScreen extends StatefulWidget{
+class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);
 
   @override
@@ -11,7 +11,6 @@ class NewsScreen extends StatefulWidget{
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-
   bool isLoading = true;
 
   late NewsArt newsArt;
@@ -33,9 +32,10 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(title: Text("Market Information"), centerTitle: true,),
-
+      appBar: AppBar(
+        title: Text("Market Information"),
+        centerTitle: true,
+      ),
       body: PageView.builder(
           controller: PageController(initialPage: 0),
           scrollDirection: Axis.vertical,
@@ -46,12 +46,16 @@ class _NewsScreenState extends State<NewsScreen> {
             GetNews();
           },
           itemBuilder: (context, index) {
-            return isLoading ? Center(child: CircularProgressIndicator(),) : newscontainer(
-                imgUrl: newsArt.imgUrl,
-                newsCnt: newsArt.newsCnt,
-                newsHead: newsArt.newsHead,
-                newsDes: newsArt.newsDes,
-                newsUrl: newsArt.newsUrl);
+            return isLoading
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : newscontainer(
+                    imgUrl: newsArt.imgUrl,
+                    newsCnt: newsArt.newsCnt,
+                    newsHead: newsArt.newsHead,
+                    newsDes: newsArt.newsDes,
+                    newsUrl: newsArt.newsUrl);
           }),
     );
   }

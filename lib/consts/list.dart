@@ -11,3 +11,6 @@ const featureImage2 = [imgS4, imgS5, imgS6];
 
 const featureTitles1 = [tools, rawWool, processedWool];
 const featureTitles2 = [yarn, tools, rawWool];
+
+const categoryList = [tools, rawWool, processedWool, yarn];
+const categoryImg = [imgS1, imgS2, imgS3, imgS4];

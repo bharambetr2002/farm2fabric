@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         showingSplash = false;
       });
-    });  
+    });
   }
 
   @override
@@ -35,11 +35,13 @@ class _MyAppState extends State<MyApp> {
       title: 'Farm2Fabric',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
+        appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Vx.black),
+            elevation: 0.0,
+            backgroundColor: Colors.transparent),
         fontFamily: regular,
       ),
       home: const SplashScreen(),
     );
   }
 }
-

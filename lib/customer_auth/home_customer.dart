@@ -3,28 +3,33 @@ import 'package:farm2fabric/trading_platform/view/home_screen/trading_home.dart'
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Home_Customer extends StatelessWidget{
+class Home_Customer extends StatelessWidget {
   const Home_Customer({Key? key}) : super(key: key);
 
   void onCardTap(String title, BuildContext context) {
     switch (title) {
       case 'Market Information':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       case 'Learn':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       case 'Warehouse':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       case 'Trade':
         Get.to(() => const TradingHome());
         break;
       case 'Market':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       case 'Service':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewsScreen()));
         break;
       default:
         print('Unknown screen');
@@ -81,11 +86,20 @@ class Home_Customer extends StatelessWidget{
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 10.0, // Adjust this value for desired vertical spacing
-                  crossAxisSpacing: 10.0, // Adjust this value for desired horizontal spacing
+                  mainAxisSpacing:
+                      10.0, // Adjust this value for desired vertical spacing
+                  crossAxisSpacing:
+                      10.0, // Adjust this value for desired horizontal spacing
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  final title = ['Market Information', 'Learn', 'Warehouse', 'Trade', 'Market', 'Service'][index];
+                  final title = [
+                    'Market Information',
+                    'Learn',
+                    'Warehouse',
+                    'Trade',
+                    'Market',
+                    'Service'
+                  ][index];
                   return GestureDetector(
                     onTap: () => onCardTap(title, context),
                     child: GridItem(title: title),
@@ -100,6 +114,7 @@ class Home_Customer extends StatelessWidget{
     );
   }
 }
+
 class GridItem extends StatelessWidget {
   final String title;
 

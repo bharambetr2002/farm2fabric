@@ -10,32 +10,33 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>{
-
+class _SplashScreenState extends State<SplashScreen> {
 // creating a method to change screen
 
-changeScreen(){
-  Future.delayed(const Duration(seconds: 5), () {
-    //using getX
-    Get.off(() => loginScreen());
-  });
-}
+  changeScreen() {
+    Future.delayed(const Duration(seconds: 5), () {
+      //using getX
+      Get.off(() => loginScreen());
+    });
+  }
 
-@override
+  @override
   void initState() {
     changeScreen();
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Center(
-        child: Column(
-          children:[
+        backgroundColor: Colors.blue,
+        body: Center(
+            child: Column(
+          children: [
             //splash screeb UI is started
-            Align( alignment: Alignment.topLeft, child: Image.asset(icSplashBg, width: 300)),
+            Align(
+                alignment: Alignment.topLeft,
+                child: Image.asset(icSplashBg, width: 300)),
             20.heightBox,
             applogoWidget(),
             10.heightBox,
@@ -47,8 +48,6 @@ changeScreen(){
             30.heightBox,
             //splash screen UI is completed
           ],
-        )
-      )
-    );
+        )));
   }
 }

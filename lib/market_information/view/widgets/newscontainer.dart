@@ -1,24 +1,22 @@
 import 'package:farm2fabric/market_information/view/detail_view.dart';
 import 'package:flutter/material.dart';
 
-class newscontainer extends StatelessWidget{
+class newscontainer extends StatelessWidget {
+  String imgUrl;
+  String newsHead;
+  String newsDes;
+  String newsUrl;
+  String newsCnt;
 
-    String imgUrl;
-    String newsHead;
-    String newsDes;
-    String newsUrl;
-    String newsCnt;
-
-   newscontainer({super.key , 
-    required this.imgUrl ,
-    required this.newsHead ,
-    required this.newsDes ,
-    required this.newsCnt ,
-    required this.newsUrl
-   });
+  newscontainer(
+      {super.key,
+      required this.imgUrl,
+      required this.newsHead,
+      required this.newsDes,
+      required this.newsCnt,
+      required this.newsUrl});
 
   @override
-
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
@@ -48,7 +46,8 @@ class newscontainer extends StatelessWidget{
             ),
             Text(
               newsDes,
-              style: TextStyle(fontSize: 14, color: const Color.fromARGB(96, 9, 8, 8)),
+              style: TextStyle(
+                  fontSize: 14, color: const Color.fromARGB(96, 9, 8, 8)),
             ),
             SizedBox(
               height: 15,
