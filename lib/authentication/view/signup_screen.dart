@@ -16,68 +16,104 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   bool ischeck = false;
   @override
-  Widget build(BuildContext context){
-      return bgWidget(
+  Widget build(BuildContext context) {
+    return bgWidget(
         child: Scaffold(
-          resizeToAvoidBottomInset: false,
-        body: Center(
-          child: Column(
-            children: [
-              (context.screenHeight* 0.1).heightBox,
-              applogoWidget(),
-              10.heightBox,
-              "Sign Up to $appname".text.fontFamily(bold).white.size(18).make(),
-              15.heightBox,
-              Column(
+            resizeToAvoidBottomInset: false,
+            body: Center(
+              child: Column(
                 children: [
-                  customTextField(hint: nameHint, title: name),
-                  customTextField(hint: emailHint, title: email),
-                  customTextField(hint: passwordHint, title: password),
-                  customTextField(hint: passwordHint, title: retypePassword),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(onPressed: (){}, child: forgetPass.text.make()),
-                  ),
-                  5.heightBox,  
-                  Row(
-                    children: [
-                      Checkbox(checkColor: whiteColor,
-                      activeColor: redColor,
-                      value: ischeck, onChanged: (newValue){
-                        setState(() {
-                          ischeck = newValue!;
-                        });
-                      }),
-                      10.widthBox,
-                          Expanded (
-                            child: RichText(text: TextSpan(
-                              children:[
-                                TextSpan(text: "I agree to the ",style: TextStyle(color: fontGrey, fontFamily: bold)),
-                                TextSpan(text: termsandcond ,style: TextStyle(color: redColor, fontFamily: bold)),
-                                TextSpan(text: " & ",style: TextStyle(color: fontGrey, fontFamily: bold)),
-                                TextSpan(text: privacyPolicy + " ." ,style: TextStyle(color: redColor, fontFamily: bold)),
-                              ]
-                            )),
-                      )
-                    ],
-                  ),
-                  ourButton(color : ischeck== true? redColor: lightGrey, title: signup, textColor: whiteColor, onPress: (){}).box.width(context.screenWidth -50).make(),
+                  (context.screenHeight * 0.1).heightBox,
+                  applogoWidget(),
                   10.heightBox,
-                  RichText(text: const TextSpan(
-                    children:[
-                      TextSpan(text: "Already have an account? ",style: TextStyle(color: fontGrey, fontFamily: bold)),
-                      TextSpan(text: login ,style: TextStyle(color: redColor, fontFamily: bold)),
-                    ]
+                  "Sign Up to $appname"
+                      .text
+                      .fontFamily(bold)
+                      .white
+                      .size(18)
+                      .make(),
+                  15.heightBox,
+                  Column(
+                    children: [
+                      customTextField(hint: nameHint, title: name),
+                      customTextField(hint: emailHint, title: email),
+                      customTextField(hint: passwordHint, title: password),
+                      customTextField(
+                          hint: passwordHint, title: retypePassword),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                            onPressed: () {}, child: forgetPass.text.make()),
+                      ),
+                      5.heightBox,
+                      Row(
+                        children: [
+                          Checkbox(
+                              checkColor: whiteColor,
+                              activeColor: redColor,
+                              value: ischeck,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  ischeck = newValue!;
+                                });
+                              }),
+                          10.widthBox,
+                          Expanded(
+                            child: RichText(
+                                text: TextSpan(children: [
+                              TextSpan(
+                                  text: "I agree to the ",
+                                  style: TextStyle(
+                                      color: fontGrey, fontFamily: bold)),
+                              TextSpan(
+                                  text: termsandcond,
+                                  style: TextStyle(
+                                      color: redColor, fontFamily: bold)),
+                              TextSpan(
+                                  text: " & ",
+                                  style: TextStyle(
+                                      color: fontGrey, fontFamily: bold)),
+                              TextSpan(
+                                  text: privacyPolicy + " .",
+                                  style: TextStyle(
+                                      color: redColor, fontFamily: bold)),
+                            ])),
+                          )
+                        ],
+                      ),
+                      ourButton(
+                              color: ischeck == true ? redColor : lightGrey,
+                              title: signup,
+                              textColor: whiteColor,
+                              onPress: () {})
+                          .box
+                          .width(context.screenWidth - 50)
+                          .make(),
+                      10.heightBox,
+                      RichText(
+                          text: const TextSpan(children: [
+                        TextSpan(
+                            text: "Already have an account? ",
+                            style:
+                                TextStyle(color: fontGrey, fontFamily: bold)),
+                        TextSpan(
+                            text: login,
+                            style:
+                                TextStyle(color: redColor, fontFamily: bold)),
+                      ])).onTap(() {
+                        Get.to(() => const loginScreen());
+                      })
+                    ],
                   )
-                ).onTap(() {
-                  Get.to(() => const loginScreen());
-                 })
+                      .box
+                      .white
+                      .rounded
+                      .padding(const EdgeInsets.all(16))
+                      .width(context.screenWidth - 70)
+                      .shadowSm
+                      .make()
                 ],
-            
-              ).box.white.rounded.padding(const EdgeInsets.all(16)).width(context.screenWidth -70).shadowSm.make()
-             ],
-          ),
-        )
-      ));
+              ),
+            )));
   }
 }
