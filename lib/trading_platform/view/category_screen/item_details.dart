@@ -1,5 +1,6 @@
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
 import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;
@@ -155,12 +156,67 @@ class ItemDetails extends StatelessWidget {
                         .text
                         .color(darkFontGrey)
                         .make(),
-
+                    10.heightBox,
                     // buttons section
-
                     ListView(
-                      children: [],
-                    )
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      children: List.generate(
+                        itemDetailButtonList.length,
+                        (index) => ListTile(
+                          title: itemDetailButtonList[index]
+                              .text
+                              .fontFamily(semibold)
+                              .color(darkFontGrey)
+                              .make(),
+                          trailing: const Icon(Icons.arrow_forward),
+                        ),
+                      ),
+                    ),
+                    10.heightBox,
+                    // products you may like section
+                    productsyoumaylike.text
+                        .fontFamily(bold)
+                        .size(16)
+                        .color(darkFontGrey)
+                        .make(),
+                    SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: List.generate(
+                              6,
+                              (index) => Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Image.asset(
+                                        imgP1,
+                                        width: 150,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      10.heightBox,
+                                      "Wool 4kg"
+                                          .text
+                                          .fontFamily(semibold)
+                                          .color(darkFontGrey)
+                                          .make(),
+                                      10.heightBox,
+                                      "Rs. 2000"
+                                          .text
+                                          .fontFamily(bold)
+                                          .color(redColor)
+                                          .size(16)
+                                          .make(),
+                                    ],
+                                  )
+                                      .box
+                                      .white
+                                      .margin(const EdgeInsets.symmetric(
+                                          horizontal: 4))
+                                      .roundedSM
+                                      .padding(EdgeInsets.all(8))
+                                      .make()),
+                        )),
                   ]),
             ),
           )),

@@ -15,6 +15,7 @@ const retypePasswordHint = "********";
 const name = "Name";
 const nameHint = "Tanmay";
 const privacyPolicy = "Privacy Policy";
+const logout = "Logout";
 const termsandcond = "Terms & Conditions";
 
 // trading home screen
@@ -34,3 +35,12 @@ const tools = "Tools",
     yarn = "Yarn";
 const featureProduct = "Feature Product";
 const allProduct = "All Product";
+
+// list detail string
+
+const video = "Videos",
+    review = "Reviews",
+    sellerpolicy = "Seller Policy",
+    returnPolicy = "Return Policy",
+    supportPolicy = "Support Policy",
+    productsyoumaylike = "Products you may like";

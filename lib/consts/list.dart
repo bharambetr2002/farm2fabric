@@ -14,3 +14,5 @@ const featureTitles2 = [yarn, tools, rawWool];
 
 const categoryList = [tools, rawWool, processedWool, yarn];
 const categoryImg = [imgS1, imgS2, imgS3, imgS4];
+
+const itemDetailButtonList = [video, review, returnPolicy, supportPolicy];

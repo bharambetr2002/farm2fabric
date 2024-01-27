@@ -7,6 +7,12 @@ class TradingCartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
+      child: "Cart is Empty"
+          .text
+          .size(20)
+          .color(Colors.white)
+          .fontFamily(semibold)
+          .makeCentered(),
     );
   }
 }
