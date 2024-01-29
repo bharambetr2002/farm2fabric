@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "552506040669",
+    "project_id": "farm2fabric-5bd25",
+    "storage_bucket": "farm2fabric-5bd25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552506040669:android:8ebe5e3b12bad9925588b4",
+        "android_client_info": {
+          "package_name": "com.example.farm2fabric"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu_WTuSYntyWum4U4aiH3A4vc3-rHHa6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

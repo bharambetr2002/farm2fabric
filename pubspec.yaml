@@ -38,6 +38,8 @@ dependencies:
   webview_flutter: ^2.0.13
   velocity_x: any
   get: any
+  firebase_core: ^2.24.2
+firebase_auth: ^4.16.0
 
 dev_dependencies:
   flutter_test:
