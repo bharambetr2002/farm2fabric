@@ -1,3 +1,4 @@
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/authentication/view/signup_screen.dart';
@@ -12,6 +13,8 @@ class loginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthControleer());
+
     return bgWidget(
         child: Scaffold(
             resizeToAvoidBottomInset: false,
@@ -30,12 +33,30 @@ class loginScreen extends StatelessWidget {
                   15.heightBox,
                   Column(
                     children: [
-                      customTextField(hint: emailHint, title: email),
-                      customTextField(hint: passwordHint, title: password),
+                      customTextField(
+                          hint: emailHint,
+                          title: email,
+                          isPass: false,
+                          controller: controller.emailController),
+                      customTextField(
+                          hint: passwordHint,
+                          title: password,
+                          isPass: true,
+                          controller: controller.passwordController),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                            onPressed: () {}, child: forgetPass.text.make()),
+                            onPressed: () async {
+                              await controller
+                                  .loginMethod(context: context)
+                                  .then((value) {
+                                if (value != null) {
+                                  VxToast.show(context, msg: loggedin);
+                                  Get.offAll(() => const Home_Customer());
+                                }
+                              });
+                            },
+                            child: forgetPass.text.make()),
                       ),
                       5.heightBox,
                       ourButton(

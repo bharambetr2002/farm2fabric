@@ -1,3 +1,5 @@
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
+import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
@@ -51,7 +53,10 @@ class TradingProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Get.put(AuthControleer()).signoutMethod(context);
+                    Get.offAll(() => const loginScreen());
+                  },
                   child: logout.text.fontFamily(semibold).white.make(),
                 )
               ],

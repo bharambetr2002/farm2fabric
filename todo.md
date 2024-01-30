@@ -36,3 +36,5 @@
     d. warehouser wala ka
 
 8. Home page
+
+https://docs.gradle.org/current/userguide/compatibility.html

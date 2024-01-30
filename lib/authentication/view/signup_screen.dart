@@ -1,9 +1,11 @@
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
+import 'package:farm2fabric/customer_auth/home_customer.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -14,6 +16,15 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool ischeck = false;
+  var controller = Get.put(AuthControleer());
+
+  // text controllers
+
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var passwordRetypeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return bgWidget(
@@ -34,11 +45,26 @@ class _SignupScreenState extends State<SignupScreen> {
                   15.heightBox,
                   Column(
                     children: [
-                      customTextField(hint: nameHint, title: name),
-                      customTextField(hint: emailHint, title: email),
-                      customTextField(hint: passwordHint, title: password),
                       customTextField(
-                          hint: passwordHint, title: retypePassword),
+                          hint: nameHint,
+                          title: name,
+                          controller: nameController,
+                          isPass: false),
+                      customTextField(
+                          hint: emailHint,
+                          title: email,
+                          controller: emailController,
+                          isPass: false),
+                      customTextField(
+                          hint: passwordHint,
+                          title: password,
+                          controller: passwordController,
+                          isPass: true),
+                      customTextField(
+                          hint: passwordHint,
+                          title: retypePassword,
+                          controller: passwordRetypeController,
+                          isPass: true),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -81,13 +107,33 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       ourButton(
-                              color: ischeck == true ? redColor : lightGrey,
-                              title: signup,
-                              textColor: whiteColor,
-                              onPress: () {})
-                          .box
-                          .width(context.screenWidth - 50)
-                          .make(),
+                          color: ischeck == true ? redColor : lightGrey,
+                          title: signup,
+                          textColor: whiteColor,
+                          onPress: () async {
+                            if (ischeck != false) {
+                              try {
+                                await controller
+                                    .signupMethod(
+                                        context: context,
+                                        email: emailController.text,
+                                        password: passwordController.text)
+                                    .then((value) {
+                                  return controller.storeUserData(
+                                    email: emailController.text,
+                                    name: nameController.text,
+                                    password: passwordController.text,
+                                  );
+                                }).then((value) {
+                                  VxToast.show(context, msg: loggedin);
+                                  Get.offAll(Home_Customer());
+                                });
+                              } catch (e) {
+                                auth.signOut();
+                                VxToast.show(context, msg: e.toString());
+                              }
+                            }
+                          }).box.width(context.screenWidth - 50).make(),
                       10.heightBox,
                       RichText(
                           text: const TextSpan(children: [
