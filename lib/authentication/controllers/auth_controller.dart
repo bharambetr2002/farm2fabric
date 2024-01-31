@@ -5,12 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthController extends GetxController {
   var isloading = false.obs;
 
-  // text controllers
+  //textcontroller
 
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+  var emailController = TextEditingController(text: 'admin@ges.com');
+  var passwordController = TextEditingController(text: '123456');
 
-  // login method
+  //login method
 
   Future<UserCredential?> loginMethod({context}) async {
     UserCredential? userCredential;
@@ -19,46 +19,54 @@ class AuthController extends GetxController {
       userCredential = await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
-      VxToast.show(context, msg: e.toString(), bgColor: Vx.blue100);
+
+      VxToast.show(context, msg: e.toString());
+
     }
     return userCredential;
   }
 
-  // signup method
+
+  //signup method
 
   Future<UserCredential?> signupMethod({email, password, context}) async {
     UserCredential? userCredential;
-
     try {
       userCredential = await auth.createUserWithEmailAndPassword(
-          email: emailController.text.toString(),
-          password: passwordController.text.toString());
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      VxToast.show(context, msg: e.toString(), bgColor: Vx.green400);
+      VxToast.show(context, msg: e.toString());
+
     }
     return userCredential;
   }
 
-  //  storing data method
+
+  //storing user data
 
   storeUserData({name, password, email}) async {
     DocumentReference store =
-        await firestore.collection(usersCollection).doc(currentUser!.uid);
+        firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
       'name': name,
-      'password': password,
       'email': email,
-      'imageUrl': '',
+      'password': password,
+      'imgUrl': '',
+
       'id': currentUser!.uid,
     });
   }
 
-  // signout method
+
+//signout method
+
   signoutMethod(context) async {
     try {
       await auth.signOut();
     } catch (e) {
-      VxToast.show(context, msg: e.toString(), bgColor: Vx.red500);
+
+      VxToast.show(context, msg: e.toString());
+
     }
   }
 }

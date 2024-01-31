@@ -17,7 +17,7 @@ class TradingCategoryScreen extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: GridView.builder(
                 shrinkWrap: true,
-                itemCount: 9,
+                itemCount: 4,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisExtent: 200,

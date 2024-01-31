@@ -21,9 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
       //Get.off(() => loginScreen());
       auth.authStateChanges().listen((User? user) {
         if (user == null && mounted) {
-          Get.off(() => const loginScreen());
+
+          Get.to(() => loginScreen());
         } else {
-          Get.off(() => Home_Customer());
+          Get.to(() => Home_Customer());
+
         }
       });
     });
