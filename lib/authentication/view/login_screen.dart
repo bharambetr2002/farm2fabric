@@ -13,7 +13,7 @@ class loginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(AuthControleer());
+    var controller = Get.put(AuthController());
 
     return bgWidget(
         child: GestureDetector(
@@ -62,7 +62,7 @@ class loginScreen extends StatelessWidget {
                               title: login,
                               textColor: whiteColor,
                               onPress: () async {
-                                controller.isloading.value = true;
+                                controller.isloading(true);
                                 await controller
                                     .loginMethod(context: context)
                                     .then((value) {
@@ -70,7 +70,7 @@ class loginScreen extends StatelessWidget {
                                     VxToast.show(context, msg: loggedin);
                                     Get.offAll(() => const Home_Customer());
                                   } else {
-                                    controller.isloading.value = false;
+                                    controller.isloading(false);
                                   }
                                 });
                               },

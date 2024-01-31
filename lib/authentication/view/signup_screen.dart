@@ -16,7 +16,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool ischeck = false;
-  var controller = Get.put(AuthControleer());
+  var controller = Get.put(AuthController());
 
   // text controllers
 
@@ -125,10 +125,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                     await controller
                                         .signupMethod(
                                             context: context,
-                                            email:
-                                                emailController.text.toString(),
-                                            password: passwordController.text
-                                                .toString())
+                                            email: emailController.text,
+                                            password: passwordController.text)
                                         .then((value) {
                                       return controller.storeUserData(
                                         email: emailController.text,
@@ -141,7 +139,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                     });
                                   } catch (e) {
                                     auth.signOut();
-                                    VxToast.show(context, msg: e.toString());
+                                    VxToast.show(context,
+                                        msg: e.toString(),
+                                        bgColor: Vx.yellow600);
                                     controller.isloading.value = false;
                                   }
                                 }

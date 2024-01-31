@@ -54,7 +54,7 @@ class TradingProfileScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () async {
-                    await Get.put(AuthControleer()).signoutMethod(context);
+                    await Get.put(AuthController()).signoutMethod(context);
                     Get.offAll(() => const loginScreen());
                   },
                   child: logout.text.fontFamily(semibold).white.make(),

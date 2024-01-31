@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthControleer extends GetxController {
+class AuthController extends GetxController {
   var isloading = false.obs;
 
   // text controllers
@@ -16,11 +16,10 @@ class AuthControleer extends GetxController {
     UserCredential? userCredential;
 
     try {
-      await auth.signInWithEmailAndPassword(
-          email: emailController.text.toString(),
-          password: passwordController.text.toString());
+      userCredential = await auth.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
-      VxToast.show(context, msg: e.toString());
+      VxToast.show(context, msg: e.toString(), bgColor: Vx.blue100);
     }
     return userCredential;
   }
@@ -31,11 +30,11 @@ class AuthControleer extends GetxController {
     UserCredential? userCredential;
 
     try {
-      await auth.createUserWithEmailAndPassword(
+      userCredential = await auth.createUserWithEmailAndPassword(
           email: emailController.text.toString(),
           password: passwordController.text.toString());
     } on FirebaseAuthException catch (e) {
-      VxToast.show(context, msg: e.toString(), bgColor: Vx.red500);
+      VxToast.show(context, msg: e.toString(), bgColor: Vx.green400);
     }
     return userCredential;
   }
@@ -50,7 +49,7 @@ class AuthControleer extends GetxController {
       'password': password,
       'email': email,
       'imageUrl': '',
-      //'id': currentUser!.uid,
+      'id': currentUser!.uid,
     });
   }
 

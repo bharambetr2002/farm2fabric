@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
+import 'package:farm2fabric/customer_auth/home_customer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,7 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
   changeScreen() {
     Future.delayed(const Duration(seconds: 5), () {
       //using getX
-      Get.off(() => loginScreen());
+      //Get.off(() => loginScreen());
+      auth.authStateChanges().listen((User? user) {
+        if (user == null && mounted) {
+          Get.off(() => const loginScreen());
+        } else {
+          Get.off(() => Home_Customer());
+        }
+      });
     });
   }
 
