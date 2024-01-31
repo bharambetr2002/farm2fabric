@@ -40,6 +40,10 @@ dependencies:
   webview_flutter: ^2.0.13
   velocity_x: any
   get: any
+  firebase_core: ^2.25.0
+  firebase_auth: ^4.16.0
+  firebase_storage: ^11.6.0
+  cloud_firestore: ^4.14.0
 
 dev_dependencies:
   flutter_test:
