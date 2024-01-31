@@ -1,10 +1,10 @@
 1. Market Information - 
-    a. News 
-    b. Current Wool Price.
+    a. News - done 
+    b. Current Wool Price. - cancel 
 
 2. Education -
-    a. Blogs - https://www.youtube.com/watch?v=P79Wwvrg1w4&list=PLBxWkM8PLHcpNxRIq2SZBt1WoJCUBCIiX&index=7
-    b. Video
+    a. Blogs - https://www.youtube.com/watch?v=P79Wwvrg1w4&list=PLBxWkM8PLHcpNxRIq2SZBt1WoJCUBCIiX&index=7      -        working 
+    b. Video - not thought 
 
 3. Trading Platform -
     a. Wool Sell/Buy
@@ -13,7 +13,7 @@
     d. Order Page
     https://www.youtube.com/watch?v=R1T3jH8b9r4&list=PL-7EgTNrNHKYe2PulhORLN13xcfqIP8FK&index=5
 
-4. Service Platform - 
+4. Service Platform - unworked 
     a. list
     b. booking
     c. service status
@@ -36,3 +36,5 @@
     d. warehouser wala ka
 
 8. Home page
+
+https://docs.gradle.org/current/userguide/compatibility.html

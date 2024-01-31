@@ -1,13 +1,17 @@
 {
   "project_info": {
+
     "project_number": "443703759532",
     "project_id": "farm2fabric-ges",
     "storage_bucket": "farm2fabric-ges.appspot.com"
+
   },
   "client": [
     {
       "client_info": {
+
         "mobilesdk_app_id": "1:443703759532:android:336c8b080d752781dd8509",
+
         "android_client_info": {
           "package_name": "com.example.farm2fabric"
         }
@@ -15,7 +19,9 @@
       "oauth_client": [],
       "api_key": [
         {
+
           "current_key": "AIzaSyDQNvPfDgVOCK9sW77WP5mcceaQKcM32sI"
+
         }
       ],
       "services": {

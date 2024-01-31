@@ -14,6 +14,7 @@ class loginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AuthController());
+
     return bgWidget(
         child: GestureDetector(
             // to hide keyboard when user click outside the textfield
@@ -25,6 +26,7 @@ class loginScreen extends StatelessWidget {
                     children: [
                       (context.screenHeight * 0.1).heightBox,
                       applogoWidget(),
+
                       10.heightBox,
                       "Log in to $appname"
                           .text
@@ -115,7 +117,9 @@ class loginScreen extends StatelessWidget {
                             .make(),
                       )
                     ],
+
                   ),
                 ))));
+
   }
 }

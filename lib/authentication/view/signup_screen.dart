@@ -15,6 +15,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+
   bool isCheck = false;
   var controller = Get.put(AuthController());
 //textcontroller
@@ -23,10 +24,12 @@ class _SignupScreenState extends State<SignupScreen> {
   var passwordController = TextEditingController();
   var passwordretypeController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return bgWidget(
         child: GestureDetector(
+
             // to hide keyboard when user click outside the textfield
             onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
@@ -158,6 +161,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             10.heightBox,
                             RichText(
                                 text: const TextSpan(children: [
+
                               TextSpan(
                                   text: "Already have an account? ",
                                   style: TextStyle(
@@ -166,6 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   text: login,
                                   style: TextStyle(
                                       color: redColor, fontFamily: bold)),
+
                             ])).onTap(() {
                               Get.to(() => const loginScreen());
                             })
@@ -182,5 +187,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     ],
                   ),
                 ))));
+
   }
 }

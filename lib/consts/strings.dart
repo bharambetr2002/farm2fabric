@@ -19,6 +19,8 @@ const nameHint = "Tanmay";
 const privacyPolicy = "Privacy Policy";
 const logout = "Logout";
 const termsandcond = "Terms & Conditions";
+const loggedin = "Logged in Succesfully";
+const loggedout = "Logged out Succesfully";
 
 // trading home screen
 const home = "Home",
