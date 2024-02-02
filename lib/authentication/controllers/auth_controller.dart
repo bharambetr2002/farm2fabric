@@ -6,12 +6,10 @@ class AuthController extends GetxController {
   var isloading = false.obs;
 
   //textcontroller
-
   var emailController = TextEditingController(text: 'admin@ges.com');
   var passwordController = TextEditingController(text: '1234567');
 
   //login method
-
   Future<UserCredential?> loginMethod({context}) async {
     UserCredential? userCredential;
 
@@ -19,16 +17,12 @@ class AuthController extends GetxController {
       userCredential = await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
-
       VxToast.show(context, msg: e.toString());
-
     }
     return userCredential;
   }
 
-
   //signup method
-
   Future<UserCredential?> signupMethod({email, password, context}) async {
     UserCredential? userCredential;
     try {
@@ -36,14 +30,11 @@ class AuthController extends GetxController {
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
-
     }
     return userCredential;
   }
 
-
   //storing user data
-
   storeUserData({name, password, email}) async {
     DocumentReference store =
         firestore.collection(usersCollection).doc(currentUser!.uid);
@@ -53,23 +44,18 @@ class AuthController extends GetxController {
       'password': password,
       'imgUrl': '',
       'id': currentUser!.uid,
-      'cart_count' : "0",
-      'wishlist_count' : "0",
-      'order_count' : "0",
-
+      'cart_count': "0",
+      'wishlist_count': "0",
+      'order_count': "0",
     });
   }
 
-
 //signout method
-
   signoutMethod(context) async {
     try {
       await auth.signOut();
     } catch (e) {
-
       VxToast.show(context, msg: e.toString());
-
     }
   }
 }

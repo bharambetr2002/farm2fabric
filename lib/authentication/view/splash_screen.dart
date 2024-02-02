@@ -14,21 +14,23 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 // creating a method to change screen
-
   changeScreen() {
-    Future.delayed(const Duration(seconds: 5), () {
-      //using getX
-      //Get.off(() => loginScreen());
-      auth.authStateChanges().listen((User? user) {
-        if (user == null && mounted) {
-
-          Get.to(() => loginScreen());
-        } else {
-          Get.to(() => Home_Customer());
-
-        }
-      });
-    });
+    Future.delayed(
+      const Duration(seconds: 5),
+      () {
+        //using getX
+        //auth check on start
+        auth.authStateChanges().listen(
+          (User? user) {
+            if (user == null && mounted) {
+              Get.to(() => loginScreen());
+            } else {
+              Get.to(() => Home_Customer());
+            }
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -40,10 +42,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //splashscreen color
-        backgroundColor: Colors.blue,
-        body: Center(
-            child: Column(
+      //splashscreen color
+      backgroundColor: Colors.blue,
+      body: Center(
+        child: Column(
           children: [
             //splash screeb UI is started
             Align(
@@ -60,6 +62,8 @@ class _SplashScreenState extends State<SplashScreen> {
             30.heightBox,
             //splash screen UI is completed
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
