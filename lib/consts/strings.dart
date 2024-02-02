@@ -21,6 +21,8 @@ const logout = "Logout";
 const termsandcond = "Terms & Conditions";
 const loggedin = "Logged in Succesfully";
 const loggedout = "Logged out Succesfully";
+const oldpass = "Old Password";
+const newpass = "New Password";
 
 // trading home screen
 const home = "Home",

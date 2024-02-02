@@ -19,22 +19,17 @@ class TradingProfileScreen extends StatelessWidget {
     return bgWidget(
       child: Scaffold(
         body: StreamBuilder(
-          //stream: FirestoreServices.getUser(currentUser!.uid),
           stream: FirebaseFirestore.instance
               .collection("users")
               .doc(FirebaseAuth.instance.currentUser?.uid)
               .snapshots(),
-          builder:
-              //(BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
-              (context, snapshot) {
+          builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(
                   child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation(redColor)));
             } else {
-              //var data = snapshot.data!.docs[0];
               var data = snapshot.data!.data() as Map<String, dynamic>;
-
               return SafeArea(
                 child: Column(
                   children: [
@@ -48,7 +43,9 @@ class TradingProfileScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ).onTap(() {
-                        Get.to(() => const EditProfileScreen());
+                        controller.nameController.text = data['name'];
+                        
+                        Get.to(() => EditProfileScreen(data: data));
                       }),
                     ),
 
@@ -57,12 +54,19 @@ class TradingProfileScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Row(
                         children: [
-                          Image.asset(imgProfile2,
-                                  width: 100, fit: BoxFit.cover)
-                              .box
-                              .roundedFull
-                              .clip(Clip.antiAlias)
-                              .make(),
+                          data['imgUrl'] == ''
+                              ? Image.asset(imgProfile2,
+                                      width: 100, fit: BoxFit.cover)
+                                  .box
+                                  .roundedFull
+                                  .clip(Clip.antiAlias)
+                                  .make()
+                              : Image.network(data['imgUrl'],
+                                      width: 100, fit: BoxFit.cover)
+                                  .box
+                                  .roundedFull
+                                  .clip(Clip.antiAlias)
+                                  .make(),
                           10.widthBox,
                           Expanded(
                               child: Column(

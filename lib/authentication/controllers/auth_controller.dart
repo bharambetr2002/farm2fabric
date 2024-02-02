@@ -8,7 +8,7 @@ class AuthController extends GetxController {
   //textcontroller
 
   var emailController = TextEditingController(text: 'admin@ges.com');
-  var passwordController = TextEditingController(text: '123456');
+  var passwordController = TextEditingController(text: '1234567');
 
   //login method
 
