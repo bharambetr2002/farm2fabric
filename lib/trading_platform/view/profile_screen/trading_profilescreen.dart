@@ -4,10 +4,10 @@ import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
-import 'package:farm2fabric/services/firestore_services.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/components/details_card.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/controller/profile_controller.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/edit_profile_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class TradingProfileScreen extends StatelessWidget {
   const TradingProfileScreen({Key? key}) : super(key: key);
@@ -19,15 +19,21 @@ class TradingProfileScreen extends StatelessWidget {
     return bgWidget(
       child: Scaffold(
         body: StreamBuilder(
-          stream: FirestoreServices.getUser(currentUser!.uid),
+          //stream: FirestoreServices.getUser(currentUser!.uid),
+          stream: FirebaseFirestore.instance
+              .collection("users")
+              .doc(FirebaseAuth.instance.currentUser?.uid)
+              .snapshots(),
           builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              //(BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
+              (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(
                   child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation(redColor)));
             } else {
-              var data = snapshot.data!.docs[0];
+              //var data = snapshot.data!.docs[0];
+              var data = snapshot.data!.data() as Map<String, dynamic>;
 
               return SafeArea(
                 child: Column(
@@ -93,15 +99,15 @@ class TradingProfileScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         detailsCard(
-                            count: "00",
+                            count: "${data['cart_count']}",
                             title: "in your cart",
                             width: context.screenWidth / 3.4),
                         detailsCard(
-                            count: "32",
+                            count: "${data['wishlist_count']}",
                             title: "in your wishlist",
                             width: context.screenWidth / 3.4),
                         detailsCard(
-                            count: "9",
+                            count: "${data['order_count']}",
                             title: "in your orders",
                             width: context.screenWidth / 3.4),
                       ],
