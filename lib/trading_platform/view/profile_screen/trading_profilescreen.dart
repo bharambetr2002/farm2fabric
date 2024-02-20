@@ -44,7 +44,7 @@ class TradingProfileScreen extends StatelessWidget {
                         ),
                       ).onTap(() {
                         controller.nameController.text = data['name'];
-                        
+
                         Get.to(() => EditProfileScreen(data: data));
                       }),
                     ),

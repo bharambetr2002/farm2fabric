@@ -1,9 +1,11 @@
 import 'package:farm2fabric/consts/consts.dart';
 
-class FirestoreServices{
-
+class FirestoreServices {
   //get users data
-  static getUser(uid){
-    return firestore.collection(usersCollection).where('id',isEqualTo: uid).snapshots();
+  static getUser(uid) {
+    return firestore
+        .collection(usersCollection)
+        .where('id', isEqualTo: uid)
+        .snapshots();
   }
 }

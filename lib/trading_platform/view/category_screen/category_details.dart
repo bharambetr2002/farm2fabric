@@ -1,5 +1,6 @@
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/trading_platform/view/category_screen/item_details.dart';
 
 class CategroryDetails extends StatelessWidget {
@@ -8,21 +9,23 @@ class CategroryDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProductController());
+
     return bgWidget(
         child: Scaffold(
       appBar: AppBar(
         title: title!.text.fontFamily(bold).white.make(),
       ),
       body: Container(
-        padding: EdgeInsets.all(12),
-        child: Column(children: [
+        padding: EdgeInsets.all(8),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                    6,
-                    (index) => "Tools"
+                    controller.subcat.length,
+                    (index) => "${controller.subcat[index]}"
                         .text
                         .fontFamily(semibold)
                         .color(darkFontGrey)

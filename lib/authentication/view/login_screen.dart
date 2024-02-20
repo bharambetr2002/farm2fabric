@@ -49,7 +49,7 @@ class loginScreen extends StatelessWidget {
                           title: password,
                           isPass: true,
                           controller: controller.passwordController),
-                          
+
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(

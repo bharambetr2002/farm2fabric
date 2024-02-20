@@ -1,6 +1,7 @@
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
+import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/trading_platform/view/category_screen/category_details.dart';
 
 class TradingCategoryScreen extends StatelessWidget {
@@ -8,6 +9,8 @@ class TradingCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProductController());
+
     return bgWidget(
         child: Scaffold(
             appBar: AppBar(
@@ -47,6 +50,7 @@ class TradingCategoryScreen extends StatelessWidget {
                       .outerShadowSm
                       .make()
                       .onTap(() {
+                    controller.getSubCategorys(categoryList[index]);
                     Get.to(() => CategroryDetails(
                           title: categoryList[index],
                         ));

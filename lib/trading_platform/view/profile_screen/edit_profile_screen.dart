@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:io';
 import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
@@ -101,7 +100,6 @@ class EditProfileScreen extends StatelessWidget {
 
                                   if (data['password'] ==
                                       controller.oldpasswordController.text) {
-                                        
                                     await controller.changeAuthPassword(
                                       email: data['email'],
                                       password:
