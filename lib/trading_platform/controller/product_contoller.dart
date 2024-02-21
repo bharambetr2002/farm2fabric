@@ -29,7 +29,24 @@ class ProductController extends GetxController {
     }
   }
 
-  calulateTotalPrice(price){
-    totalPrice.value =   price * quantity.value;
+  calulateTotalPrice(price) {
+    totalPrice.value = price * quantity.value;
+  }
+
+  addToCart({title, img, sellername, qty, tprice, context}) async {
+    await firestore.collection(cartCollection).doc().set({
+      'title': title,
+      'img': img,
+      'sellername': sellername,
+      'qty': qty,
+      'tprice': tprice,
+      'added_by': currentUser!.uid
+    }).catchError((error){
+      VxToast.show(context, msg: error.toString());
+    });
+  }
+  resetValues(){
+    totalPrice.value = 0;
+    quantity.value = 0;
   }
 }
