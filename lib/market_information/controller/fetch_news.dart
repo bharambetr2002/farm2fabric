@@ -44,7 +44,7 @@ class FetchNews {
     // add your own key here & follow the steps given in env.dart
 
     Response response = await get(Uri.parse(
-        "https://newsapi.org/v2/everything?q=wool+fabric&apiKey=$API_KEY"));
+        "https://newsapi.org/v2/everything?q=wool+fabric+winter&apiKey=$API_KEY"));
 
     Map body_data = jsonDecode(response.body);
     List articles = body_data["articles"];

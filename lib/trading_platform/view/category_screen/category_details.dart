@@ -86,7 +86,8 @@ class CategroryDetails extends StatelessWidget {
                                         .make(),
                                     10.heightBox,
                                     "${data[index]["p_price"]}"
-                                        // TODO : add locale currency
+                                        // TODO: add locale currency
+
                                         .numCurrency
                                         .text
                                         .fontFamily(bold)

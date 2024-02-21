@@ -4,6 +4,7 @@ import 'package:farm2fabric/trading_platform/view/cart_screen/trading_cartscreen
 import 'package:farm2fabric/trading_platform/view/category_screen/trading_categoryscreen.dart';
 import 'package:farm2fabric/trading_platform/view/home_screen/trading_homescreen.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/trading_profilescreen.dart';
+import 'package:farm2fabric/trading_platform/view/widgets_common/exit_dialog.dart';
 
 class TradingHome extends StatelessWidget {
   const TradingHome({Key? key}) : super(key: key);
@@ -47,26 +48,35 @@ class TradingHome extends StatelessWidget {
       TradingProfileScreen()
     ];
 
-    return Scaffold(
-      body: Column(
-        children: [
-          Obx(
-            () => Expanded(
-                child: navBody.elementAt(controller.currentNavIndex.value)),
-          )
-        ],
-      ),
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          currentIndex: controller.currentNavIndex.value,
-          selectedItemColor: redColor,
-          selectedLabelStyle: const TextStyle(fontFamily: semibold),
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          items: navbarItem,
-          onTap: (value) {
-            controller.currentNavIndex.value = value;
-          },
+    return WillPopScope(
+      onWillPop: () async {
+        showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) => exitDiaglog(context));
+        return false;
+      },
+      child: Scaffold(
+        body: Column(
+          children: [
+            Obx(
+              () => Expanded(
+                  child: navBody.elementAt(controller.currentNavIndex.value)),
+            )
+          ],
+        ),
+        bottomNavigationBar: Obx(
+          () => BottomNavigationBar(
+            currentIndex: controller.currentNavIndex.value,
+            selectedItemColor: redColor,
+            selectedLabelStyle: const TextStyle(fontFamily: semibold),
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+            items: navbarItem,
+            onTap: (value) {
+              controller.currentNavIndex.value = value;
+            },
+          ),
         ),
       ),
     );
