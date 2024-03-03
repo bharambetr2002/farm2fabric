@@ -2,6 +2,7 @@ import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
+import 'package:farm2fabric/trading_platform/view/chat_screen/chat_screen.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;
@@ -31,7 +32,16 @@ class ItemDetails extends StatelessWidget {
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
             IconButton(
-                onPressed: () {}, icon: const Icon(Icons.favorite_outline)),
+                onPressed: () {
+                  if (controller.isFav.value) {
+                    controller.removeFromWishlist(data.id);
+                    controller.isFav(false);
+                  } else {
+                    controller.addToWishlist(data.id);
+                    controller.isFav(true);
+                  }
+                },
+                icon: const Icon(Icons.favorite_outlined)),
           ],
         ),
         body: Column(
@@ -108,8 +118,14 @@ class ItemDetails extends StatelessWidget {
                           Column(),
                           CircleAvatar(
                             backgroundColor: whiteColor,
-                            child: Icon(Icons.message_rounded,
-                                color: darkFontGrey),
+                            child:
+                                Icon(Icons.message_rounded, color: darkFontGrey)
+                                    .onTap(() {
+                              Get.to(() => ChatScreen(), arguments: [
+                                data['p_seller'],
+                                data['vender_id']
+                              ]);
+                            }),
                           )
                         ],
                       )

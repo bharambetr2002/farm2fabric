@@ -1,7 +1,6 @@
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/market_information/view/news_main.dart';
 import 'package:farm2fabric/trading_platform/view/home_screen/trading_home.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Home_Customer extends StatelessWidget {
   const Home_Customer({Key? key}) : super(key: key);
@@ -39,6 +38,7 @@ class Home_Customer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Farm2Fabric"),
         centerTitle: true,
@@ -47,7 +47,7 @@ class Home_Customer extends StatelessWidget {
         toolbarHeight: 56,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 10),
+        padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             const Text(
@@ -56,27 +56,24 @@ class Home_Customer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
 
-            const SizedBox(height: 15),
-
+            10.heightBox,
             Image.asset(
               'assets/images/logo.png',
               height: 110,
               alignment: Alignment.center,
             ),
 
-            const SizedBox(height: 15),
-
+            10.heightBox,
             const Text(
               "Welcome, back to",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
 
-            const SizedBox(height: 15),
-
+            10.heightBox,
             const Text(
               "Farm2Fabric",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
 
@@ -105,7 +102,7 @@ class Home_Customer extends StatelessWidget {
                     child: GridItem(title: title),
                   );
                 },
-                itemCount: 4,
+                itemCount: 6,
               ),
             ),
           ],

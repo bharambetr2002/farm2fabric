@@ -28,6 +28,7 @@ class _DetailViewScreenState extends State<DetailViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Market Information"),
         centerTitle: true,

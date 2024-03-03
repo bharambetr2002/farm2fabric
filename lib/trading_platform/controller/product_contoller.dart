@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/trading_platform/models/category_model.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,7 @@ class ProductController extends GetxController {
   var subcat = [];
   var quantity = 0.obs;
   var totalPrice = 0.obs;
+  var isFav = false.obs;
 
   getSubCategorys(title) async {
     subcat.clear();
@@ -41,12 +43,25 @@ class ProductController extends GetxController {
       'qty': qty,
       'tprice': tprice,
       'added_by': currentUser!.uid
-    }).catchError((error){
+    }).catchError((error) {
       VxToast.show(context, msg: error.toString());
     });
   }
-  resetValues(){
+
+  resetValues() {
     totalPrice.value = 0;
     quantity.value = 0;
+  }
+
+  addToWishlist(docId) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayUnion([currentUser!.uid])
+    }, SetOptions(merge: true));
+  }
+
+  removeFromWishlist(docId) async {
+    await firestore.collection(productsCollection).doc(docId).set({
+      'p_wishlist': FieldValue.arrayRemove([currentUser!.uid])
+    }, SetOptions(merge: true));
   }
 }
