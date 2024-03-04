@@ -3,6 +3,7 @@ import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/trading_platform/view/chat_screen/chat_screen.dart';
+import 'package:get/get.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;
@@ -31,17 +32,18 @@ class ItemDetails extends StatelessWidget {
           title: title!.text.color(darkFontGrey).fontFamily(bold).make(),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-            IconButton(
-                onPressed: () {
-                  if (controller.isFav.value) {
-                    controller.removeFromWishlist(data.id);
-                    controller.isFav(false);
-                  } else {
-                    controller.addToWishlist(data.id);
-                    controller.isFav(true);
-                  }
-                },
-                icon: const Icon(Icons.favorite_outlined)),
+            Obx(
+              () => IconButton(
+                  onPressed: () {
+                    if (controller.isFav.value) {
+                      controller.removeFromWishlist(data.id, context);
+                    } else {
+                      controller.addToWishlist(data.id, context);
+                    }
+                  },
+                  icon: Icon(Icons.favorite_outlined,
+                      color: controller.isFav.value ? redColor : darkFontGrey)),
+            ),
           ],
         ),
         body: Column(
