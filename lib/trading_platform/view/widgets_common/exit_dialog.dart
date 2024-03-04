@@ -18,7 +18,8 @@ Widget exitDiaglog(context) {
             ourButton(
                 color: redColor,
                 onPress: () {
-                  Get.to(Home_Customer());
+                  //close all screens and get to
+                  Get.offAll(() => const Home_Customer());
                 },
                 textColor: whiteColor,
                 title: "Yes"),
