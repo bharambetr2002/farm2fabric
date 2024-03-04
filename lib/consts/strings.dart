@@ -56,3 +56,6 @@ const wishlist = 'My Wishlist',
     orders = 'My Orders',
     address = 'My Address',
     messages = 'Messages';
+
+//payement method string
+const paypal = "Paypal", stripe = "Stripe", cod = "Cash On Deilvery";

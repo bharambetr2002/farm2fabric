@@ -19,3 +19,6 @@ const itemDetailButtonList = [video, review, returnPolicy, supportPolicy];
 
 const profileButtonlList = [wishlist, orders, messages];
 const profileButtonlListIcon = [icOrder, icOrder, icMessages];
+
+const paymentMethodsListImg = [imgPaypal, imgStripe, imgCod];
+const paymentMethods = [paypal, stripe, cod];
