@@ -3,7 +3,7 @@ import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/services/firestore_services.dart';
 import 'package:farm2fabric/trading_platform/view/chat_screen/%20components/sender_bubble.dart';
 import 'package:farm2fabric/trading_platform/view/chat_screen/controller/chats_controller.dart';
-import 'package:farm2fabric/trading_platform/view/widgets_common/loading_indicator.dart';
+import 'package:farm2fabric/widgets_common/loading_indicator.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);

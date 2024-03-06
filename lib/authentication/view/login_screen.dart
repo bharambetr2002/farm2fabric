@@ -2,10 +2,10 @@ import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/authentication/view/signup_screen.dart';
-import 'package:farm2fabric/authentication/widgets_common/applogo_widget.dart';
-import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
-import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
-import 'package:farm2fabric/authentication/widgets_common/custom_textfiled.dart';
+import 'package:farm2fabric/widgets_common/applogo_widget.dart';
+import 'package:farm2fabric/widgets_common/bg_widget.dart';
+import 'package:farm2fabric/widgets_common/our_button.dart';
+import 'package:farm2fabric/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/customer_auth/home_customer.dart';
 
 class loginScreen extends StatelessWidget {

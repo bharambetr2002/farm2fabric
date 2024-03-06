@@ -1,8 +1,7 @@
-import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
+import 'package:farm2fabric/widgets_common/our_button.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/controller/cart_controller.dart';
-import 'package:flutter/material.dart';
 
 class PaymentMethods extends StatelessWidget {
   const PaymentMethods({Key? key}) : super(key: key);
@@ -23,7 +22,12 @@ class PaymentMethods extends StatelessWidget {
         bottomNavigationBar: SizedBox(
           height: 60,
           child: ourButton(
-            onPress: () {},
+            onPress: () async{
+              controller.placeMyOrder(
+                  orderPaymentMethod:
+                      paymentMethods[controller.paymentIndex.value],
+                  totalAmount: controller.totalCart.value);
+            },
             color: redColor,
             textColor: whiteColor,
             title: "Place my Order",

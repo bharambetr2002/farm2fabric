@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:farm2fabric/authentication/widgets_common/bg_widget.dart';
+import 'package:farm2fabric/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/services/firestore_services.dart';
 import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/trading_platform/view/category_screen/item_details.dart';
-import 'package:farm2fabric/trading_platform/view/widgets_common/loading_indicator.dart';
+import 'package:farm2fabric/widgets_common/loading_indicator.dart';
 
 class CategroryDetails extends StatelessWidget {
   final String? title;

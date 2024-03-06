@@ -1,4 +1,4 @@
-import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
+import 'package:farm2fabric/widgets_common/our_button.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/customer_auth/home_customer.dart';
 

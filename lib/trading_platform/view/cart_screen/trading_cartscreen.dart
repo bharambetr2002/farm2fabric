@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:farm2fabric/authentication/widgets_common/our_button.dart';
+import 'package:farm2fabric/widgets_common/our_button.dart';
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/services/firestore_services.dart';
 import 'package:farm2fabric/trading_platform/view/cart_screen/shipping_screen.dart';
 import 'package:farm2fabric/trading_platform/view/profile_screen/controller/cart_controller.dart';
-import 'package:farm2fabric/trading_platform/view/widgets_common/loading_indicator.dart';
+import 'package:farm2fabric/widgets_common/loading_indicator.dart';
 
 class TradingCartScreen extends StatelessWidget {
   const TradingCartScreen({Key? key}) : super(key: key);
@@ -46,6 +46,7 @@ class TradingCartScreen extends StatelessWidget {
           } else {
             var data = snapshot.data!.docs;
             controller.calulate(data);
+            controller.productSnapshot = data;
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(

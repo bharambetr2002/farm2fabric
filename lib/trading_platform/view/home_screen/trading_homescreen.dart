@@ -1,7 +1,7 @@
 import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
-import 'package:farm2fabric/trading_platform/view/widgets_common/featured_button.dart';
-import 'package:farm2fabric/trading_platform/view/widgets_common/home_buttons.dart';
+import 'package:farm2fabric/widgets_common/featured_button.dart';
+import 'package:farm2fabric/widgets_common/home_buttons.dart';
 
 class TradingHomeScreen extends StatelessWidget {
   const TradingHomeScreen({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/education_page/blog.dart';
 import 'package:farm2fabric/market_information/view/news_main.dart';
 import 'package:farm2fabric/trading_platform/view/home_screen/trading_home.dart';
 
@@ -13,7 +14,7 @@ class Home_Customer extends StatelessWidget {
         break;
       case 'Learn':
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewsScreen()));
+            context, MaterialPageRoute(builder: (context) => BlogPage()));
         break;
       case 'Warehouse':
         Navigator.push(
