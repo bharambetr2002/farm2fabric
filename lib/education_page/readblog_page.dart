@@ -13,47 +13,52 @@ class ReadBlogPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Blog Details"),
       ),
-      body: StreamBuilder<DocumentSnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('blogs')
-            .doc(blogId)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('blogs')
+              .doc(blogId)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            var blogData = snapshot.data!.data() as Map<String, dynamic>;
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    blogData['title'],
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Author: ${blogData['authorName']}',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: 16),
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.network(
+                      blogData['imgUrl'],
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    blogData['desc'],
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
             );
-          }
-          var blogData = snapshot.data!.data() as Map<String, dynamic>;
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  blogData['title'],
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Author: ${blogData['authorName']}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  blogData['desc'],
-                  style: TextStyle(fontSize: 18),
-                ),
-                SizedBox(height: 16),
-                Image.network(
-                  blogData['imgUrl'],
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ],
-            ),
-          );
-        },
+          },
+        ),
       ),
     );
   }

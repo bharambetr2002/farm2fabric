@@ -36,16 +36,44 @@ class ProductController extends GetxController {
   }
 
   addToCart({title, img, sellername, qty, tprice, context}) async {
-    await firestore.collection(cartCollection).doc().set({
-      'title': title,
-      'img': img,
-      'sellername': sellername,
-      'qty': qty,
-      'tprice': tprice,
-      'added_by': currentUser!.uid
-    }).catchError((error) {
-      VxToast.show(context, msg: error.toString());
-    });
+    if (quantity.value == 0) {
+      VxToast.show(context, msg: "Add at least one product");
+    } else {
+      try {
+        // Check if the product already exists in the cart for the current user
+        var existingProduct = await firestore
+            .collection(cartCollection)
+            .where('title', isEqualTo: title)
+            .where('sellername', isEqualTo: sellername)
+            .where('added_by', isEqualTo: currentUser!.uid)
+            .limit(1) // Limit to 1 document
+            .get();
+
+        if (existingProduct.docs.isNotEmpty) {
+          // If the product exists, update the quantity
+          var docId = existingProduct.docs[0].id;
+          var currentQty = existingProduct.docs[0]['qty'] ?? 0;
+          await firestore.collection(cartCollection).doc(docId).update({
+            'qty': currentQty + quantity.value, // Increment the quantity
+            'tprice': (currentQty + quantity.value) *
+                tprice // Recalculate total price
+          });
+        } else {
+          // If the product doesn't exist, add a new document
+          await firestore.collection(cartCollection).doc().set({
+            'title': title,
+            'img': img,
+            'sellername': sellername,
+            'qty': quantity.value,
+            'tprice': tprice * quantity.value,
+            'added_by': currentUser!.uid
+          });
+        }
+        VxToast.show(context, msg: "Added to cart");
+      } catch (error) {
+        VxToast.show(context, msg: error.toString());
+      }
+    }
   }
 
   resetValues() {

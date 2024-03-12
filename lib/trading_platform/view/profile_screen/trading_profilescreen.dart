@@ -88,10 +88,38 @@ class TradingProfileScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-                              await Get.put(AuthController())
-                                  .signoutMethod(context);
-                              Get.offAll(() => const loginScreen());
+                              bool confirmed = await Get.dialog(
+                                AlertDialog(
+                                  title: Text('Confirm Logout'),
+                                  content:
+                                      Text('Are you sure you want to logout?'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Get.back(
+                                            result:
+                                                false); // Close dialog and return false
+                                      },
+                                      child: Text('Cancel'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Get.back(
+                                            result:
+                                                true); // Close dialog and return true
+                                      },
+                                      child: Text('Logout'),
+                                    ),
+                                  ],
+                                ),
+                              );
+
+                              if (confirmed != null && confirmed) {
+                                await Get.find<AuthController>().signout();
+                                Get.offAll(() => const loginScreen());
+                              }
                             },
+
                             child:
                                 logout.text.fontFamily(semibold).white.make(),
                           )

@@ -3,7 +3,6 @@ import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/trading_platform/view/chat_screen/chat_screen.dart';
-import 'package:get/get.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;

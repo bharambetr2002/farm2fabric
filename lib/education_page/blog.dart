@@ -1,5 +1,4 @@
 import 'package:farm2fabric/education_page/readblog_page.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:farm2fabric/consts/consts.dart';
@@ -19,6 +18,15 @@ class _BlogPageState extends State<BlogPage> {
   late Stream<QuerySnapshot> blogsStream;
 
   Widget blogsList() {
+    ScrollController _scrollController = ScrollController();
+
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        getMoreBlogs();
+      }
+    });
+
     return Container(
       child: StreamBuilder<QuerySnapshot>(
         stream: blogsStream,
@@ -37,26 +45,35 @@ class _BlogPageState extends State<BlogPage> {
           }
 
           return ListView.builder(
+            controller: _scrollController,
             padding: EdgeInsets.symmetric(horizontal: 16),
             itemCount: snapshot.data!.docs.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
               var blogData =
                   snapshot.data!.docs[index].data() as Map<String, dynamic>;
+              if (blogData == null) {
+                return SizedBox
+                    .shrink(); // If blogData is null, return an empty SizedBox
+              }
               return GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ReadBlogPage(blogId: snapshot.data!.docs[index].id),
+                      builder: (context) => ReadBlogPage(
+                        blogId: snapshot.data!.docs[index].id,
+                      ),
                     ),
                   );
                 },
                 child: BlogsTile(
-                  authorName: blogData['authorName'],
-                  title: blogData['title'],
-                  description: blogData['desc'],
-                  imgUrl: blogData['imgUrl'],
+                  title: blogData['title'] ??
+                      '', // Provide a default value for title if it's null
+                  authorName: blogData['authorName'] ?? '',
+                  // Provide a default value for authorName if it's null
+                  imgUrl: blogData['imgUrl'] ?? '',
+                  // Provide a default value for imgUrl if it's null
                 ),
               );
             },
@@ -64,6 +81,10 @@ class _BlogPageState extends State<BlogPage> {
         },
       ),
     );
+  }
+
+  void getMoreBlogs() {
+    // Fetch more blogs here
   }
 
   @override
@@ -106,11 +127,10 @@ class _BlogPageState extends State<BlogPage> {
 }
 
 class BlogsTile extends StatelessWidget {
-  final String imgUrl, title, description, authorName;
+  final String imgUrl, title, authorName;
   const BlogsTile({
     required this.imgUrl,
     required this.title,
-    required this.description,
     required this.authorName,
   });
 
@@ -118,45 +138,31 @@ class BlogsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 16),
-      height: 150,
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: CachedNetworkImage(
-              imageUrl: imgUrl,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            height: 170,
-            decoration: BoxDecoration(
-              color: Colors.black45.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(6),
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (imgUrl.isNotEmpty)
+            AspectRatio(
+              aspectRatio: 16 / 9, // Specify the aspect ratio here
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: CachedNetworkImage(
+                  imageUrl: imgUrl,
+                  fit: BoxFit.cover,
                 ),
-                SizedBox(height: 4),
-                Text(
-                  description,
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                ),
-                SizedBox(height: 4),
-                Text(authorName),
-              ],
+              ),
             ),
+          SizedBox(height: 8),
+          Text(
+            title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: 4),
+          Text(
+            'Author: $authorName',
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+          Divider(height: 20, color: Colors.grey[300]),
         ],
       ),
     );

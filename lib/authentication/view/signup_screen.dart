@@ -143,7 +143,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   controller.isloading(true);
                                   try {
                                     await controller
-                                        .signupMethod(
+                                        .signup(
                                             context: context,
                                             email: emailController.text,
                                             password: passwordController.text)
