@@ -15,6 +15,7 @@ class TradingProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ProfileController());
+    Get.put(AuthController());
 
     return bgWidget(
       child: Scaffold(
@@ -114,12 +115,12 @@ class TradingProfileScreen extends StatelessWidget {
                                 ),
                               );
 
-                              if (confirmed != null && confirmed) {
+                              // Check if confirmed is true, or if it's null (user canceled the dialog)
+                              if (confirmed == true) {
                                 await Get.find<AuthController>().signout();
                                 Get.offAll(() => const loginScreen());
                               }
                             },
-
                             child:
                                 logout.text.fontFamily(semibold).white.make(),
                           )

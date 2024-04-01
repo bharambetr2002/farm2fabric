@@ -99,19 +99,20 @@ class _BlogPageState extends State<BlogPage> {
       backgroundColor: whiteColor,
       appBar: AppBar(
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
-              "Flutter",
+              "Educational",
               style: TextStyle(fontSize: 22),
             ),
             Text(
               "Blog",
-              style: TextStyle(fontSize: 22, color: Colors.blue),
+              style: TextStyle(fontSize: 22, color: Colors.white),
             )
           ],
         ),
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
+        backgroundColor: Colors.blue,
         elevation: 0.0,
       ),
       body: blogsList(),

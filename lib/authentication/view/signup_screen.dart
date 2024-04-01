@@ -1,30 +1,66 @@
 import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
-import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/authentication/view/login_screen.dart';
+import 'package:farm2fabric/consts/colors.dart';
+import 'package:farm2fabric/consts/firebase_consts.dart';
+import 'package:farm2fabric/consts/strings.dart';
+import 'package:farm2fabric/consts/styles.dart';
 import 'package:farm2fabric/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/widgets_common/our_button.dart';
-import 'package:farm2fabric/customer_auth/home_customer.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import '../../customer_auth/home_customer.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
-
   @override
   State<SignupScreen> createState() => _SignupScreenState();
 }
 
 class _SignupScreenState extends State<SignupScreen> {
   bool isCheck = false;
+  bool areFieldsFilled = false;
 
   //authcontroller
-  var controller = Get.put(AuthController());
+  final controller = Get.put(AuthController());
 
-//textcontrollers
-  var nameController = TextEditingController();
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-  var passwordretypeController = TextEditingController();
+  //textcontrollers
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordRetypeController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Listen to changes in text fields to enable/disable the checkbox
+    nameController.addListener(updateCheckboxState);
+    emailController.addListener(updateCheckboxState);
+    passwordController.addListener(updateCheckboxState);
+    passwordRetypeController.addListener(updateCheckboxState);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controllers
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    passwordRetypeController.dispose();
+    super.dispose();
+  }
+
+  void updateCheckboxState() {
+    setState(() {
+      // Check if all text fields are filled
+      areFieldsFilled = nameController.text.isNotEmpty &&
+          emailController.text.isNotEmpty &&
+          passwordController.text.isNotEmpty &&
+          passwordRetypeController.text.isNotEmpty;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     .white
                     .size(18)
                     .make(),
-
                 15.heightBox,
-
                 //signup form
                 Obx(
                   () => Column(
@@ -72,15 +106,13 @@ class _SignupScreenState extends State<SignupScreen> {
                           hint: passwordHint,
                           isPass: true,
                           title: retypePassword,
-                          controller: passwordretypeController),
+                          controller: passwordRetypeController),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
                             onPressed: () {}, child: forgetPass.text.make()),
                       ),
-
                       5.heightBox,
-
                       //checkbox for terms and conditions
                       Row(
                         children: [
@@ -88,17 +120,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             checkColor: whiteColor,
                             activeColor: redColor,
                             value: isCheck,
-                            onChanged: (newValue) {
-                              setState(
-                                () {
-                                  isCheck = newValue!;
-                                },
-                              );
-                            },
+                            onChanged: areFieldsFilled
+                                ? (newValue) {
+                                    setState(() {
+                                      isCheck = newValue!;
+                                    });
+                                  }
+                                : null, // Disable checkbox if fields are not filled
                           ),
-
                           10.widthBox,
-
                           //terms and conditions
                           Expanded(
                             child: RichText(
@@ -126,32 +156,32 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ],
                       ),
-
                       //circular loading indicator
                       controller.isloading.value
                           ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(redColor),
                             )
-
                           //signup button
                           : ourButton(
-                              color: isCheck == true ? redColor : lightGrey,
+                              color: isCheck ? redColor : lightGrey,
                               title: signup,
                               textColor: whiteColor,
                               onPress: () async {
-                                if (isCheck != false) {
+                                if (isCheck) {
                                   controller.isloading(true);
                                   try {
                                     await controller
                                         .signup(
-                                            context: context,
-                                            email: emailController.text,
-                                            password: passwordController.text)
+                                      context: context,
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    )
                                         .then((value) {
                                       return controller.storeUserData(
-                                          email: emailController.text,
-                                          name: nameController.text,
-                                          password: passwordController.text);
+                                        email: emailController.text,
+                                        name: nameController.text,
+                                        password: passwordController.text,
+                                      );
                                     }).then(
                                       (value) {
                                         VxToast.show(context, msg: loginIn);
@@ -166,9 +196,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 }
                               },
                             ).box.width(context.screenWidth - 50).make(),
-
                       10.heightBox,
-
                       // login redirection
                       RichText(
                         text: const TextSpan(

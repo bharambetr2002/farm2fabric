@@ -30,8 +30,25 @@ class _DetailViewScreenState extends State<DetailViewScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Market Information"),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Market",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              " ",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              "Information",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            )
+          ],
+        ),
+        backgroundColor: Colors.blue,
+        elevation: 0.0,
       ),
       body: WebView(
         initialUrl: widget.newsUrl,

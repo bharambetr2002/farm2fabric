@@ -11,7 +11,21 @@ class ReadBlogPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: Text("Blog Details"),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Educational",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              "Blog",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            )
+          ],
+        ),
+        backgroundColor: Colors.blue,
+        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),

@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
               child: const Text(
-                'Farm to Fabric',
+                'Farm2Fabric',
                 style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,

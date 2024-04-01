@@ -34,9 +34,25 @@ class _NewsScreenState extends State<NewsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text("Market Information"),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Market",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              " ",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              "Information",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            )
+          ],
+        ),
+        backgroundColor: Colors.blue,
+        elevation: 0.0,
       ),
       body: PageView.builder(
           controller: PageController(initialPage: 0),

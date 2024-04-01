@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:farm2fabric/consts/consts.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
@@ -76,9 +75,18 @@ class _CreateBlogState extends State<CreateBlog> {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: Text(
-          "Flutter Blog",
-          style: TextStyle(fontSize: 22),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Educational",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              "Blog",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            )
+          ],
         ),
         backgroundColor: Colors.blue,
         actions: <Widget>[
