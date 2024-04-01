@@ -12,10 +12,9 @@ class NewsScreen extends StatefulWidget {
 
 class _NewsScreenState extends State<NewsScreen> {
   bool isLoading = true;
-
   late NewsArt newsArt;
 
-  GetNews() async {
+  Future<void> getNews() async {
     newsArt = await FetchNews.fetchNews();
 
     setState(() {
@@ -25,7 +24,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   void initState() {
-    GetNews();
+    getNews();
     super.initState();
   }
 
@@ -55,26 +54,28 @@ class _NewsScreenState extends State<NewsScreen> {
         elevation: 0.0,
       ),
       body: PageView.builder(
-          controller: PageController(initialPage: 0),
-          scrollDirection: Axis.vertical,
-          onPageChanged: (value) {
-            setState(() {
-              isLoading = true;
-            });
-            GetNews();
-          },
-          itemBuilder: (context, index) {
-            return isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : newscontainer(
-                    imgUrl: newsArt.imgUrl,
-                    newsCnt: newsArt.newsCnt,
-                    newsHead: newsArt.newsHead,
-                    newsDes: newsArt.newsDes,
-                    newsUrl: newsArt.newsUrl);
-          }),
+        controller: PageController(initialPage: 0),
+        scrollDirection: Axis.vertical,
+        onPageChanged: (value) {
+          setState(() {
+            isLoading = true;
+          });
+          getNews();
+        },
+        itemBuilder: (context, index) {
+          return isLoading
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : NewsContainer(
+                  imgUrl: newsArt.imgUrl,
+                  newsCnt: newsArt.newsCnt,
+                  newsHead: newsArt.newsHead,
+                  newsDes: newsArt.newsDes,
+                  newsUrl: newsArt.newsUrl,
+                );
+        },
+      ),
     );
   }
 }
