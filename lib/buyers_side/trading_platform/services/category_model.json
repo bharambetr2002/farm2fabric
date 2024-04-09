@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "name": "Tools",
+      "subcategory": ["Shearing Machines", "Spinning Wheels", "Weaving Looms"]
+    },
+    {
+      "name": "Processed Wool",
+      "subcategory": [
+        "Wool Yarn",
+        "Wool Fabric",
+        "Wool Clothing",
+        "Wool Blankets and Throws",
+        "Wool Carpets and Rugs",
+        "Wool Upholstery"
+      ]
+    },
+    {
+      "name": "Raw Wool",
+      "subcategory": [
+        "Fleece Wool",
+        "Greasy Wool",
+        "Scoured Wool",
+        "Wool Locks and Rovings",
+        "Wool Fleeces for Spinning",
+        "Wool Felting Fiber"
+      ]
+    },
+    {
+      "name": "Yarn",
+      "subcategory": [
+        "Spun Yarn",
+        "Chunky Yarn",
+        "Sock Yarn",
+        "Lace Yarn",
+        "Bulky Yarn",
+        "Worsted Yarn"
+      ]
+    }
+  ]
+}

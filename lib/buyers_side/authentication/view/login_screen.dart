@@ -1,0 +1,141 @@
+import 'package:farm2fabric/buyers_side/authentication/controllers/auth_controller.dart';
+import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/buyers_side/consts/list.dart';
+import 'package:farm2fabric/buyers_side/authentication/view/signup_screen.dart';
+import 'package:farm2fabric/buyers_side/widgets_common/applogo_widget.dart';
+import 'package:farm2fabric/buyers_side/widgets_common/bg_widget.dart';
+import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';
+import 'package:farm2fabric/buyers_side/widgets_common/custom_textfiled.dart';
+import 'package:farm2fabric/buyers_side/customer_auth/home_customer.dart';
+
+class loginScreen extends StatelessWidget {
+  const loginScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
+
+    return bgWidget(
+      child: GestureDetector(
+        // to hide keyboard when user click outside the textfield
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Center(
+            child: Column(
+              children: [
+                (context.screenHeight * 0.1).heightBox,
+                applogoWidget(),
+                10.heightBox,
+                "Log in to $appname"
+                    .text
+                    .fontFamily(bold)
+                    .white
+                    .size(18)
+                    .make(),
+                15.heightBox,
+                Obx(
+                  () => Column(
+                    children: [
+                      //enter email and password
+                      customTextField(
+                          hint: emailHint,
+                          title: email,
+                          isPass: false,
+                          controller: controller.emailController),
+
+                      customTextField(
+                          hint: passwordHint,
+                          title: password,
+                          isPass: true,
+                          controller: controller.passwordController),
+
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                            onPressed: () {}, child: forgetPass.text.make()),
+                      ),
+
+                      5.heightBox,
+
+                      //circular loading indicator
+                      controller.isloading.value
+                          ? const CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(redColor),
+                            )
+
+                          //login button
+                          : ourButton(
+                              color: redColor,
+                              title: login,
+                              textColor: whiteColor,
+                              onPress: () async {
+                                controller.isloading(true);
+                                await controller
+                                    .login(context: context)
+                                    .then((value) {
+                                  if (value != null) {
+                                    VxToast.show(context, msg: login);
+                                    Get.offAll(() => const Home_Customer());
+                                  } else {
+                                    controller.isloading(false);
+                                  }
+                                });
+                              },
+                            ).box.width(context.screenWidth - 50).make(),
+
+                      5.heightBox,
+
+                      createNewAccount.text.color(fontGrey).make(),
+
+                      //signup button
+                      ourButton(
+                          color: golden,
+                          title: signup,
+                          textColor: whiteColor,
+                          onPress: () {
+                            Get.to(() => const SignupScreen());
+                          }).box.width(context.screenWidth - 50).make(),
+
+                      10.heightBox,
+
+                      loginWith.text.color(fontGrey).make(),
+
+                      5.heightBox,
+
+                      //social media icons-login
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          3,
+                          (index) => Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              backgroundColor: lightGrey,
+                              radius: 25,
+                              child: Image.asset(
+                                socialIconList[index],
+                                width: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                      .box
+                      .white
+                      .rounded
+                      .padding(const EdgeInsets.all(16))
+                      .width(context.screenWidth - 70)
+                      .shadowSm
+                      .make(),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
