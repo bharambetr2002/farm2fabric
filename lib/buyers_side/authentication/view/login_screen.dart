@@ -7,6 +7,7 @@ import 'package:farm2fabric/buyers_side/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/custom_textfiled.dart';
 import 'package:farm2fabric/buyers_side/customer_auth/home_customer.dart';
+import 'package:farm2fabric/sellers_side/seller.dart';
 
 class loginScreen extends StatelessWidget {
   const loginScreen({Key? key}) : super(key: key);
@@ -95,6 +96,16 @@ class loginScreen extends StatelessWidget {
                           textColor: whiteColor,
                           onPress: () {
                             Get.to(() => const SignupScreen());
+                          }).box.width(context.screenWidth - 50).make(),
+
+                      5.heightBox,
+
+                      ourButton(
+                          color: golden,
+                          title: "You are a seller",
+                          textColor: whiteColor,
+                          onPress: () {
+                            Get.to(() => const sellerapp());
                           }).box.width(context.screenWidth - 50).make(),
 
                       10.heightBox,
