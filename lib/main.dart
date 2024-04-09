@@ -1,5 +1,5 @@
-import 'package:farm2fabric/consts/consts.dart';
-import 'package:farm2fabric/authentication/view/splash_screen.dart';
+import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/buyers_side/authentication/view/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
