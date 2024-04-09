@@ -78,7 +78,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
-    - lib/trading_platform/services/category_model.json
+    - lib/buyers_side/trading_platform/services/category_model.json
     - assets/images/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
