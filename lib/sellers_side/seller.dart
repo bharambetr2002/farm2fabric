@@ -13,7 +13,7 @@ class sellerapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Farm2fabric Seller side',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
