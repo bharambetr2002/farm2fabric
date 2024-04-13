@@ -2,6 +2,7 @@ import 'package:farm2fabric/buyers_side/consts/consts.dart';
 import 'package:farm2fabric/buyers_side/education_page/blog.dart';
 import 'package:farm2fabric/buyers_side/market_information/view/news_main.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/home_screen/trading_home.dart';
+import 'package:farm2fabric/weather_app/weatherapp.dart';
 
 class Home_Customer extends StatelessWidget {
   const Home_Customer({Key? key}) : super(key: key);
@@ -16,9 +17,9 @@ class Home_Customer extends StatelessWidget {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => BlogPage()));
         break;
-      case 'Warehouse':
+      case 'Weather':
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NewsScreen()));
+            context, MaterialPageRoute(builder: (context) => WeatherApp()));
         break;
       case 'Trade':
         Get.to(() => const TradingHome());
@@ -93,7 +94,7 @@ class Home_Customer extends StatelessWidget {
                   final title = [
                     'Market Information',
                     'Learn',
-                    'Warehouse',
+                    'Weather',
                     'Trade',
                     'Market',
                     'Service'

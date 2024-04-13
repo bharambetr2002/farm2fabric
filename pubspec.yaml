@@ -47,6 +47,11 @@ dependencies:
   image_picker: ^1.0.7
   random_string: ^2.0.1
   cached_network_image: ^3.3.1
+  geolocator: any
+  equatable: any
+  flutter_bloc: any
+  intl: any
+  weather: any
 
 dev_dependencies:
   flutter_test:
