@@ -1,5 +1,5 @@
 import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/buyers_side/customer_auth/home_customer.dart';
 
 Widget exitDiaglog(context) {

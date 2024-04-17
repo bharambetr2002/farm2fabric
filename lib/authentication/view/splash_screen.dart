@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:farm2fabric/buyers_side/authentication/view/login_screen.dart';
 import 'package:farm2fabric/buyers_side/customer_auth/home_customer.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key});

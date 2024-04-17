@@ -1,9 +1,11 @@
-import 'package:farm2fabric/buyers_side/authentication/controllers/auth_controller.dart';
-import 'package:farm2fabric/buyers_side/authentication/view/login_screen.dart';
-import 'package:farm2fabric/buyers_side/consts/colors.dart';
-import 'package:farm2fabric/buyers_side/consts/firebase_consts.dart';
-import 'package:farm2fabric/buyers_side/consts/strings.dart';
-import 'package:farm2fabric/buyers_side/consts/styles.dart';
+
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
+import 'package:farm2fabric/authentication/view/login_screen.dart';
+import 'package:farm2fabric/consts/colors.dart';
+import 'package:farm2fabric/consts/firebase_consts.dart';
+import 'package:farm2fabric/consts/strings.dart';
+import 'package:farm2fabric/consts/styles.dart';
+import 'package:farm2fabric/buyers_side/customer_auth/home_customer.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/custom_textfiled.dart';
@@ -11,7 +13,7 @@ import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../customer_auth/home_customer.dart';
+
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);

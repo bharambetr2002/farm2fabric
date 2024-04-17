@@ -1,7 +1,8 @@
-import 'package:farm2fabric/buyers_side/authentication/controllers/auth_controller.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/consts/list.dart';
-import 'package:farm2fabric/buyers_side/authentication/view/signup_screen.dart';
+
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
+import 'package:farm2fabric/authentication/view/signup_screen.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/applogo_widget.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/bg_widget.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';

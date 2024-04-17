@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:farm2fabric/buyers_side/market_information/model/news_article.dart';
-import 'package:farm2fabric/buyers_side/utilities/keys.dart';
+import 'package:farm2fabric/market_information/model/news_article.dart';
+import 'package:farm2fabric/utilities/keys.dart';
 import 'package:http/http.dart';
 
 //TODO 1 : Work on accuracy of  the news

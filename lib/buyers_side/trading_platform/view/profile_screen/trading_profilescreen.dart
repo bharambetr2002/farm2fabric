@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:farm2fabric/buyers_side/authentication/controllers/auth_controller.dart';
-import 'package:farm2fabric/buyers_side/authentication/view/login_screen.dart';
+import 'package:farm2fabric/authentication/controllers/auth_controller.dart';
+import 'package:farm2fabric/authentication/view/login_screen.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/bg_widget.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/consts/list.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/profile_screen/components/details_card.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/profile_screen/controller/profile_controller.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/profile_screen/edit_profile_screen.dart';

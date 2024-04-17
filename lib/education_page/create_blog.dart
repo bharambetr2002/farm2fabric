@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';

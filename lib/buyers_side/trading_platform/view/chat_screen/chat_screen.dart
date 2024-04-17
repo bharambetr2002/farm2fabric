@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/buyers_side/services/firestore_services.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/chat_screen/%20components/sender_bubble.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/chat_screen/controller/chats_controller.dart';

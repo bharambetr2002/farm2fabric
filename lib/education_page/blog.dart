@@ -1,9 +1,9 @@
-import 'package:farm2fabric/buyers_side/education_page/readblog_page.dart';
+import 'package:farm2fabric/education_page/readblog_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/education_page/create_blog.dart';
-import 'package:farm2fabric/buyers_side/education_page/crud.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/education_page/create_blog.dart';
+import 'package:farm2fabric/education_page/crud.dart';
 
 class BlogPage extends StatefulWidget {
   const BlogPage({Key? key}) : super(key: key);

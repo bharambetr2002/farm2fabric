@@ -1,4 +1,4 @@
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/controller/home_controller.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/cart_screen/trading_cartscreen.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/category_screen/trading_categoryscreen.dart';

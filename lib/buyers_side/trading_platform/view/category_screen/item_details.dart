@@ -1,6 +1,6 @@
 import 'package:farm2fabric/buyers_side/widgets_common/our_button.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/consts/list.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/controller/product_contoller.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/chat_screen/chat_screen.dart';
 

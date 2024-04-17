@@ -1,6 +1,6 @@
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/education_page/blog.dart';
-import 'package:farm2fabric/buyers_side/market_information/view/news_main.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/education_page/blog.dart';
+import 'package:farm2fabric/market_information/view/news_main.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/view/home_screen/trading_home.dart';
 import 'package:farm2fabric/weather_app/weatherapp.dart';
 

@@ -1,4 +1,4 @@
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 
 class HomeController extends GetxController {
   @override

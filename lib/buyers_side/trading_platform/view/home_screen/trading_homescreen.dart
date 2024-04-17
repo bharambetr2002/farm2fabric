@@ -1,5 +1,5 @@
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
-import 'package:farm2fabric/buyers_side/consts/list.dart';
+import 'package:farm2fabric/consts/consts.dart';
+import 'package:farm2fabric/consts/list.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/featured_button.dart';
 import 'package:farm2fabric/buyers_side/widgets_common/home_buttons.dart';
 

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:farm2fabric/buyers_side/consts/consts.dart';
+import 'package:farm2fabric/consts/consts.dart';
 import 'package:farm2fabric/buyers_side/trading_platform/controller/home_controller.dart';
 
 class ChatsController extends GetxController {

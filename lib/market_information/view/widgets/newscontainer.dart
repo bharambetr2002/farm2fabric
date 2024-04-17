@@ -1,4 +1,4 @@
-import 'package:farm2fabric/buyers_side/market_information/view/detail_view.dart';
+import 'package:farm2fabric/market_information/view/detail_view.dart';
 import 'package:flutter/material.dart';
 
 class NewsContainer extends StatelessWidget {

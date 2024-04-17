@@ -1,6 +1,6 @@
 import "package:farm2fabric/buyers_side/widgets_common/custom_textfiled.dart";
 import "package:farm2fabric/buyers_side/widgets_common/our_button.dart";
-import "package:farm2fabric/buyers_side/consts/consts.dart";
+import "package:farm2fabric/consts/consts.dart";
 import "package:farm2fabric/buyers_side/trading_platform/view/cart_screen/paymentmethod.dart";
 import "package:farm2fabric/buyers_side/trading_platform/view/profile_screen/controller/cart_controller.dart";
 
