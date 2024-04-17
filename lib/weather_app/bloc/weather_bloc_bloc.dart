@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:farm2fabric/weather_app/data/my_data.dart';
+import 'package:farm2fabric/utilities/keys.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/weather.dart';
@@ -11,7 +11,7 @@ class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
     on<FetchWeather>((event, emit) async {
       emit(WeatherBlocLoading());
       try {
-        WeatherFactory wf = WeatherFactory(API_KEY, language: Language.ENGLISH);
+        WeatherFactory wf = WeatherFactory(WEATHER_API_KEY, language: Language.ENGLISH);
 
         Position position = await Geolocator.getCurrentPosition();
 
