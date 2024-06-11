@@ -85,8 +85,3 @@ Contributions are always welcome! Please follow these steps to contribute:
 3. Commit your changes (`git commit -m 'Add some feature'`)
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a pull request
-
-Contributors:
-- - [![Tanmay Bharambe](https://avatars.githubusercontent.com/u/00000?v=4)](https://github.com/bharambetr2002) [Contributor1](https://github.com/bharambetr2002)
-
-
