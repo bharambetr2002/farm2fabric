@@ -11,7 +11,6 @@ A Mobile Application providing you the complete solution for all things in and o
 - [Running the App](#running-the-app)
 - [Building for Production](#building-for-production)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -66,16 +65,6 @@ For iOS:
 ```bash
 flutter build ios --release
 ```
-## Contributing
-
-Contributions are always welcome! Please follow these steps to contribute:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a pull request
-
 ## Contributing
 
 Contributions are always welcome! Please follow these steps to contribute:
