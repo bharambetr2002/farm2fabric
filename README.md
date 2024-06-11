@@ -87,6 +87,6 @@ Contributions are always welcome! Please follow these steps to contribute:
 5. Open a pull request
 
 Contributors:
-- [Tanmay Bharambe](https://github.com/bharambetr2002)
+- - [![Tanmay Bharambe](https://avatars.githubusercontent.com/u/00000?v=4)](https://github.com/bharambetr2002) [Contributor1](https://github.com/bharambetr2002)
 
 
