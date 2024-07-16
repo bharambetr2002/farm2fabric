@@ -2,6 +2,8 @@
 
 A Mobile Application providing you the complete solution for all things in and out of the wool market. Whether you are a buyer or a wool producer looking to sell wool, this app is for you.
 
+Time Spend on the Project Till date : [![wakatime](https://wakatime.com/badge/github/bharambetr2002/farm2fabric.svg)](https://wakatime.com/badge/github/bharambetr2002/farm2fabric)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
