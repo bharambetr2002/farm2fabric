@@ -2,8 +2,7 @@
 
 A Mobile Application providing you the complete solution for all things in and out of the wool market. Whether you are a buyer or a wool producer looking to sell wool, this app is for you.
 
-Total Time Spend on Repostory : [![wakatime](https://wakatime.com/badge/github/bharambetr2002/farm2fabric.svg)](https://wakatime.com/badge/github/bharambetr2002/farm2fabric) /br
-Total Coding on Project : [![wakatime](https://wakatime.com/badge/user/018bafed-988f-4a8f-9158-c0465ae00d92/project/018cd8bf-7009-4ae9-b5f8-9e07035adc94.svg)](https://wakatime.com/badge/user/018bafed-988f-4a8f-9158-c0465ae00d92/project/018cd8bf-7009-4ae9-b5f8-9e07035adc94)
+Total Time Spend on Project : [![wakatime](https://wakatime.com/badge/github/bharambetr2002/farm2fabric.svg)](https://wakatime.com/badge/github/bharambetr2002/farm2fabric) 
 
 ## Table of Contents
 
